@@ -1,0 +1,82 @@
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="rte"> 
+        {{ page.content }}
+        <div class="createAccount">
+          <h2>Creez votre compte client</h2>
+          {% form 'create_customer' %}
+          <label for="first_name">First Name</label>
+          <input type="text" value="" name="customer[first_name]"/>
+
+          <label for="last_name">Last Name</label>
+          <input type="text" value="" name="customer[last_name]"/>
+
+          <label for="email">Email address</label>
+          <input class="{% if form.errors contains 'email' %} input--error {% endif %}" 
+                 type="email" value="" name="customer[email]" 
+                 autocorrect="off" 
+                 autocapitalize="off"/>
+
+          <input type="hidden" value="" name="customer[tag]"/>
+
+          <label for="password">Password</label>
+          <input class="{% if form.errors contains 'password' %} input--error {% endif %}" type="password" value="" name="customer[password]"/>
+
+
+          <input type="submit" value="Create" />
+
+          {% endform %}
+        </div>
+        
+        <div class="customerLogin">
+          <h2>Se connecter</h2>
+          {% form 'customer_login' %} {{ form.errors | default_errors }}
+
+            <label for="customer_email">Email Address</label>
+            <input type="email" name="login[email]" autocorrect="off" autocapitalize="off"/>
+
+            <label for="customer_password">Password</label>
+            <input type="password" name="login[password]" />
+
+            <input type="submit" value="Sign In" />
+
+          {% endform %} 
+        </div>
+        
+        <div class="newsletterForm">
+          <h2>Abonnez-vous à notre newsletter</h2>
+          {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p class="form--success">{{ 'Merci de vous être abonné !' }}</p>
+          {% else %}
+            <div class="input-group password__input-group">
+              
+              <input type="hidden" name="newsletter[tag]" value="newsletter">
+
+              <input type="email"
+                name="contact[email]"
+                class="input-group__field newsletter__input"
+                value="{% if customer %}{{ customer.email }}{% endif %}"
+                placeholder="{{ 'Enter your email' }}"
+                autocorrect="off"
+                autocapitalize="off">
+
+              <span class="input-group__btn">
+                <button type="submit" class="btn newsletter__submit" name="commit">
+                  <span class="newsletter__submit-text--large">{{ 'submit'}}</span>
+                </button>
+              </span>
+          	</div>
+        </div>
+        {% endif %}
+      	{% endform %}
+      </div>
+    </div>
+  </div>
+</div>
