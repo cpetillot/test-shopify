@@ -1,0 +1,80 @@
+<div id="reassurance">
+  <div class="reassurance">
+    <h1> {{ section.settings.text-box }} </h1>
+    <h2> {{ section.settings.text }} </h2>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "reassurance",
+    "settings": [
+      {
+        "id": "text-box",
+        "type": "text",
+        "label": "Heading",
+        "default": "Title"
+      },
+      {
+        "id": "text",
+        "type": "richtext",
+        "label": "Add custom text below",
+        "default": "<p>Add your text here</p>"
+      },
+      {
+          "type":      "range",
+          "id":        "Number_items",
+          "min":       3,
+          "max":        5,
+          "step":       1,
+          "unit":       "px",
+          "label":     "Items",
+          "default":   3
+      },
+      {
+          "type":      "range",
+          "id":        "Number_items_mobile",
+          "min":       2,
+          "max":        2,
+          "step":       1,
+          "unit":       "px",
+          "label":     "Items",
+          "default":   2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "subtitle"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "reassurance",
+      "category": "reassurance"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
