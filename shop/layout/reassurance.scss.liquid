@@ -6,8 +6,21 @@
 </div>
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Text Box",
+    "settings": [
+      {
+        "id": "text-box",
+        "type": "text",
+        "label": "Heading",
+        "default": "Title"
+      },
+      {
+        "id": "text",
+        "type": "richtext",
+        "label": "Add custom text below",
+        "default": "<p>Add your text here</p>"
+      }
+    ]
   }
 {% endschema %}
 
