@@ -1,15 +1,32 @@
-<div id="reassurance">
-  <div class="reassurance">
-    <h1> {{ section.settings.text-box }} </h1>
-    <h2> {{ section.settings.text }} </h2>
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="reassurance">
+  <div class="reassurance align-center">
+    <div class="container">
+      <h2 class="reassurance__title z-h1 align-center"> {{ section.settings.title }} </h2>
+      <div class="reassurance__text align-center">
+        {{ section.settings.text }}
+      </div>
+      <div class="z-grid z-grid--center">
+          {% for block in section.blocks %}
+           {% unless block.type == 'image' %}{% continue %}{% endunless %}
+            <div class="z-grid__cell 1/{{ section.settings.number_items }} 1/{{ section.settings.number_items_mobile }}--thumb grid__cell">
+              <div class="align-center">
+                <img class="reassurance__image" src="{{ block.settings.image | img_url : '250x' }}">
+              </div>
+              <h3 class="align-center z-h3">{{ block.settings.title }}</h3>
+              <div class="align-center">{{ block.settings.subtitle}}</div>
+            </div>
+          {% endfor %}
+        <div class="3/4 1/2--thumb grid__cell"></div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 {% schema %}
   {
     "name": "reassurance",
     "settings": [
       {
-        "id": "text-box",
+        "id": "title",
         "type": "text",
         "label": "Heading",
         "default": "Title"
@@ -22,22 +39,22 @@
       },
       {
           "type":      "range",
-          "id":        "Number_items",
-          "min":       3,
+          "id":        "number_items",
+          "min":       2,
           "max":        5,
           "step":       1,
-          "unit":       "px",
-          "label":     "Items",
+          "unit":       "pc",
+          "label":     "Number of pieces desktop",
           "default":   3
       },
       {
           "type":      "range",
-          "id":        "Number_items_mobile",
-          "min":       2,
-          "max":        2,
+          "id":        "number_items_mobile",
+          "min":       1,
+          "max":        3,
           "step":       1,
-          "unit":       "px",
-          "label":     "Items",
+          "unit":       "pc",
+          "label":     "Number of pieces mobile",
           "default":   2
       }
     ],

@@ -43,15 +43,10 @@
     <meta name="description" content="{{ page_description | escape }}" />
     {%- endif -%} {% include 'social-meta-tags' %}
 
-    {{
-      "theme.scss.css" | asset_url | stylesheet_tag
-    }}
-    {{
-      "avalanche.scss.liquid" | asset_url | stylesheet_tag
-    }}
-    {{
-      "reassurance.scss.liquid" | asset_url | stylesheet_tag
-    }}
+    {{ "theme.scss.css" | asset_url | stylesheet_tag }}
+    {{ "avalanche.scss.css" | asset_url | stylesheet_tag }}
+    {{ "reassurance.scss.css" | asset_url | stylesheet_tag }}
+    {{ "zerance.scss.css" | asset_url | stylesheet_tag }}
 
     <script>
       var theme = {
@@ -122,9 +117,8 @@
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
 
-    {{
-      content_for_header
-    }}
+    {{ content_for_header }}
+
   </head>
 
   <body class="template-{{ request.page_type | handle }}">
