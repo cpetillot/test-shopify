@@ -6,17 +6,17 @@
         {{ section.settings.text }}
       </div>
       <div class="z-grid z-grid--center">
-        {% for block in section.blocks %}
-         {% unless block.type == 'image' %}{% continue %}{% endunless %}
-          <div class="z-grid__cell 1/{{ section.settings.number_items }} 1/{{ section.settings.number_items_mobile }}--thumb grid__cell">
-            <div class="align-center">
-              <img class="reassurance__image" src="{{ block.settings.image | img_url : '250x' }}">
+          {% for block in section.blocks %}
+           {% unless block.type == 'image' %}{% continue %}{% endunless %}
+            <div class="z-grid__cell 1/{{ section.settings.number_items }} 1/{{ section.settings.number_items_mobile }}--thumb grid__cell">
+              <div class="align-left">
+                <img class="reassurance__image" src="{{ block.settings.image | img_url : '250x' }}">
+              </div>
+              <h3 class="align-left z-h3">{{ block.settings.title}}</h3>
+              <div class="align-left">{{ block.settings.subtitle}}</div>
             </div>
-            <h3 class="align-center z-h3">{{ block.settings.title }}</h3>
-            <div class="align-center">{{ block.settings.subtitle}}</div>
-          </div>
           {% endfor %}
-        <div class="3/4 1/2--thumb grid__cell"></div>
+        <div class="1/2 1/2--thumb grid__cell"></div>
       </div>
     </div>
   </div>

@@ -4,15 +4,27 @@
     <div class="reassurance__text align-center">
       {{ section.settings.text }}
     </div>
-    <div class="z-grid z-grid--center">
+    <div class="z-grid z-grid--left alternate__container">
       {% for block in section.blocks %}
       {% unless block.type == 'image' %}{% continue %}{% endunless %}
-
+        <div class="z-grid__cell 1/2 1/2--thumb grid__cell ">
+          <div class="align-left">
+            <img class="alternate__image" src="{{ block.settings.image | img_url : '350x' }}">
+          </div>
+            <h3 class="align-left z-h3">{{ block.settings.title }}</h3>
+            <div class="align-left">{{ block.settings.richtext}}</div>
+            <button class="align-left">{{ block.settings.button_link}}{{ block.settings.linktext}}
+            </button>
+          </div>
+          {% if block.settings.invert_section == true %}
+            <div class="z-grid z-grid--right alternate__container"
+          {% endif %}
+        </div>
       {% endfor %}
     </div>
   </div>
 </section>
-  {% schema %}
+{% schema %}
     {
       "name": "alternate",
       "settings": [
@@ -28,6 +40,16 @@
           "label": "Add custom text below",
           "default": "<p>Add your text here</p>"
         },
+        {
+            "type":      "range",
+            "id":        "container_size",
+            "min":       1,
+            "max":        3,
+            "step":       1,
+            "unit":       "sze",
+            "label":     "Container size",
+            "default":   1
+        }
       ],
       "blocks": [
         {
@@ -50,13 +72,8 @@
               "label": "text"
             },
             {
-              "type": "richtext",
-              "id": "richtext",
-              "label": "text"
-            },
-            {
-              "id": "link",
               "type": "url",
+              "id": "button_link",
            	  "label": "Button link"
             },
             {
@@ -64,6 +81,11 @@
               "type": "text",
               "label": "Button text",
               "default": "Click here"
+            },
+            {
+              "id": "invert_section",
+              "type": "checkbox",
+              "label": "Invert section"
             }
           ]
         }
@@ -75,4 +97,4 @@
         }
       ]
     }
-  {% endschema %}
+{% endschema %}
