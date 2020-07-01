@@ -1,0 +1,78 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="alternate">
+  <div class="alternate align-center">
+    <h2 class="alternate__title z-h1 align-center"> {{ section.settings.title }} </h2>
+    <div class="reassurance__text align-center">
+      {{ section.settings.text }}
+    </div>
+    <div class="z-grid z-grid--center">
+      {% for block in section.blocks %}
+      {% unless block.type == 'image' %}{% continue %}{% endunless %}
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+  {% schema %}
+    {
+      "name": "alternate",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "label": "Add custom text below",
+          "default": "<p>Add your text here</p>"
+        },
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "name": "Image",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title"
+            },
+            {
+              "type": "richtext",
+              "id": "richtext",
+              "label": "text"
+            },
+            {
+              "type": "richtext",
+              "id": "richtext",
+              "label": "text"
+            },
+            {
+              "id": "link",
+              "type": "url",
+           	  "label": "Button link"
+            },
+            {
+              "id": "linktext",
+              "type": "text",
+              "label": "Button text",
+              "default": "Click here"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "alternate",
+          "category": "Alternate"
+        }
+      ]
+    }
+  {% endschema %}
