@@ -1,4 +1,4 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="alternate__section">
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="alternate">
   <div class="alternate  {{ section.settings.container_size}}">
     {% if section.settings.title != blank %}
     <h2 class="alternate__title z-h2 align-center"> {{ section.settings.title }} </h2>
@@ -19,9 +19,9 @@
       {% endif %}
         <div class="1/3 z-grid__cell">
           <h3 class="align-center z-h3">{{ section.settings.content_title }}</h3>
-          <div class="align-center alternate__richText">{{ section.settings.richtext}}</div>
-          <div class="align-center alternate__cta"><a href="#">{{ section.settings.cta}}</a></div>
-          <div ><a href="{{ section.settings.url }}">{{ section.settings.url}}</a></div>
+          <div class="align-center">{{ section.settings.richtext}}</div>
+          <button class="align-center">{{ section.settings.button_link}}{{ section.settings.linktext}}
+          </button>
         </div>
         {% if section.settings.invert_section == true %}
         <div class="1/2 z-grid__cell ">
@@ -65,15 +65,10 @@
         "label": "text"
         },
       {
-        "id": "cta",
+        "id": "linktext",
         "type": "text",
         "label": "Button text",
         "default": "Click here"
-      },
-      {
-        "type": "url",
-        "id": "url",
-        "label": "add your url"
       },
       {
         "id": "invert_section",
