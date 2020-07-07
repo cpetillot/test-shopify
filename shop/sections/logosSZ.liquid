@@ -1,7 +1,8 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="logos">
   <div class="logos align-center">
     <div class="logos__container">
-      <p class="logos__subtitle align-center">{{ section.settings.logo_title }}</p>
+      <div class="logos__subtitle align-center">{{ section.settings.logo_title }}</div>
+
     </div>
     <div class="z-grid z-grid--center">
         {% for block in section.blocks %}
@@ -13,9 +14,8 @@
         {% endfor %}
       <div class="1/2 1/2--thumb grid__cell"></div>
     </div>
-    <div>
-      <div class="align-center logos__cta"><a href="#">{{ section.settings.cta}}</a></div>
-      <div ><a href="{{ section.settings.url }}">{{ section.settings.url}}</a></div>
+    <div class="underline-strong">
+      <div class="align-center logos__container-cta"><a class="logos__cta" href="{{ section.settings.url_bouton }}">{{ section.settings.cta}}</a></div>
     </div>
   </div>
 </section>

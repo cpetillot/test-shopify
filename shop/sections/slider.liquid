@@ -1,0 +1,58 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="slider">
+</section>
+
+{% schema %}
+  {
+    "name": "slider_clients",
+		"max_blocks" : "8",
+    "settings": [
+      {
+        "type": "select",
+        "id": "slider_height",
+        "label": "Choisir la hauteur du slider",
+				"options": [
+          { "value" : "height--small", "label": "Petit"},
+          { "value" : "height--normal", "label": "Normal"},
+          { "value" : "height--full", "label": "Grand"}
+        ]
+      }
+    ],
+
+	"blocks": [
+      {
+        "type": "image",
+        "name": "slider",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "slider_image",
+            "label": "Images"
+          },
+					{
+            "type": "image_picker",
+            "id": "slider_logo",
+            "label": "Images"
+          },
+					{
+            "type": "text",
+            "id": "slider_subtitle",
+            "label": "Sous-titre",
+						"default" : "Ajoutez un sous-titre"
+          },
+					{
+            "type": "richtext",
+            "id": "slider_richtext",
+            "label": "Text",
+						"default" : "Ajoutez un texte"
+          }
+        ]
+      }
+    ],
+		"presets": [
+      {
+        "name": "slider_clients",
+        "category": "slideshow"
+      }
+    ]
+  }
+{% endschema %}
