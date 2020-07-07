@@ -1,0 +1,96 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="logos">
+  <div class="logos align-center">
+    <div class="logos__container">
+      <p class="logos__subtitle align-center">{{ section.settings.logo_title }}</p>
+    </div>
+    <div class="z-grid z-grid--center">
+        {% for block in section.blocks %}
+          <div class="z-grid__cell 1/{{ section.settings.number_logos }} 1/{{ section.settings.number_logos_mobile }}--thumb grid__cell">
+            <div class="align-center">
+              <img class="logos__image-logo" src="{{ block.settings.logos_img | img_url : '250x' }}">
+            </div>
+          </div>
+        {% endfor %}
+      <div class="1/2 1/2--thumb grid__cell"></div>
+    </div>
+    <div>
+      <div class="align-center logos__cta"><a href="#">{{ section.settings.cta}}</a></div>
+      <div ><a href="{{ section.settings.url }}">{{ section.settings.url}}</a></div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "logos",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "logo_title",
+        "label": "Rentrez votre titre"
+      },
+      {
+        "type": "text",
+				"id": "cta",
+        "label": "Texte du Bouton",
+        "default": "Cliquez ici"
+      },
+      {
+        "type": "url",
+        "id": "url_bouton",
+        "label": "add your url"
+      },
+      {
+          "type": "range",
+          "id": "number_logos",
+          "min": 3,
+          "max": 5,
+          "step": 1,
+          "unit": "pc",
+          "label": "Nombre de logos sur desktop",
+          "default": 3
+      },
+      {
+          "type": "range",
+          "id": "number_logos_mobile",
+          "min": 3,
+          "max": 5,
+          "step": 1,
+          "unit": "pc",
+          "label": "Nombre de logos sur mobile",
+          "default": 3
+      }
+    ],
+    "presets": [
+      {
+        "name": "header_main",
+        "category": "Header"
+      }
+    ],
+	"blocks": [
+      {
+        "type": "image",
+        "name": "logos_grid",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logos_img",
+            "label": "Images"
+          },
+					{
+		        "type": "url",
+		        "id": "url_logos",
+		        "label": "add your url"
+      }
+        ]
+      }
+    ],
+		"presets": [
+      {
+        "name": "logos",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

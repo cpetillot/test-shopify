@@ -1,0 +1,34 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="heroHeader">
+  <div class="hero-header align-center">
+    <div class="hero-header__container">
+      <p class="hero-header__subtitle align-center">{{ section.settings.hero_subtitle }}</p>
+      <h1 class="hero-header_title align-center">{{ section.settings.hero_title }}</h1>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "hero-header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_subtitle",
+        "label": "Text",
+        "default": "Ecrivez votre sous-titre"
+      },
+			{
+        "type": "richtext",
+        "id": "hero_title",
+        "label": "heading",
+        "default": "Ajoutez votre titre"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Header",
+        "category": "Hero Header"
+      }
+    ]
+  }
+{% endschema %}

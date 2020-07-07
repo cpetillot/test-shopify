@@ -12,17 +12,23 @@
     <div class="z-grid z-grid--center" >
       {% if section.settings.invert_section == false %}
       <div class="1/2 z-grid__cell ">
+        {% if section.settings.video_url == blank %}
         <div class="align-left alternate__ImgContainer">
           <img class="alternate__image" src="{{ section.settings.image | img_url : '350x' }}">
         </div>
+        {% else %}
+        <iframe src="//www.youtube.com/embed/{{ section.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="350" height="350" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
       </div>
       {% endif %}
+
         <div class="1/3 z-grid__cell">
           <h3 class="align-center z-h3">{{ section.settings.content_title }}</h3>
           <div class="align-center alternate__richText">{{ section.settings.richtext}}</div>
           <div class="align-center alternate__cta"><a href="#">{{ section.settings.cta}}</a></div>
           <div ><a href="{{ section.settings.url }}">{{ section.settings.url}}</a></div>
         </div>
+
         {% if section.settings.invert_section == true %}
         <div class="1/2 z-grid__cell ">
           <div class="align-right">
@@ -30,6 +36,7 @@
           </div>
       </div>
       {% endif %}
+
     </div>
   </div>
 </section>
@@ -53,6 +60,13 @@
         "type": "image_picker",
         "id": "image",
         "label": "Image"
+      },
+      {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "If you want a photo, let this to be empty",
+        "accept": ["youtube", "vimeo"],
+        "placeholder": "Text"
       },
       {
         "type": "text",
