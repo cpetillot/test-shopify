@@ -117,6 +117,7 @@
     <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
 
     {{ content_for_header }}
 
@@ -127,8 +128,8 @@
       "general.accessibility.skip_to_content" | t
     }}</a>
 
-    {%- if settings.enable_ajax -%} {% include 'cart-popup' %} {%- endif -%} {%
-    section 'header' %}
+    {%- if settings.enable_ajax -%} {% include 'cart-popup' %} {%- endif -%} {% comment %}{%
+    section 'header' %}{% endcomment %}
 
     <div class="page-container drawer-page-content" id="PageContainer">
       <main

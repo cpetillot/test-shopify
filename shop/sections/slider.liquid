@@ -1,10 +1,24 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="slider">
+  <div data_slider {% if section.settings.show_arrows == true %} data-slider-arrow="true" {% endif %}  class="slider {{ section.settings.slider_height}}">
+    {% for block in section.blocks %}
+      <div class="slider__slides relative">
+        <img class="slider__image" src="{{ block.settings.slider_image | img_url : '1050x' }}">
+        <div class="slider__encart">
+          <div class="slider_subtitle align-center">{{ block.settings.slider_subtitle }}</div>
+          <div class="align-center">
+            <img class="slider_logo align-center" src="{{ block.settings.slider_logo | img_url : '250x' }}">
+          </div>
+          <div class="slider_slider_richtext align-center">{{ block.settings.slider_richtext }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </section>
 
 {% schema %}
   {
-    "name": "slider_clients",
-		"max_blocks" : "8",
+    "name": "Slider",
+		"max_blocks" : 8,
     "settings": [
       {
         "type": "select",
@@ -26,24 +40,24 @@
           {
             "type": "image_picker",
             "id": "slider_image",
-            "label": "Images"
+            "label": "Images background"
           },
 					{
             "type": "image_picker",
             "id": "slider_logo",
-            "label": "Images"
+            "label": "logo du client"
           },
 					{
-            "type": "text",
+            "type": "richtext",
             "id": "slider_subtitle",
             "label": "Sous-titre",
-						"default" : "Ajoutez un sous-titre"
+						"default" : "<P>Ajoutez un sous-titre</p>"
           },
 					{
             "type": "richtext",
             "id": "slider_richtext",
             "label": "Text",
-						"default" : "Ajoutez un texte"
+						"default" : "<p>Ajoutez un texte</p>"
           }
         ]
       }

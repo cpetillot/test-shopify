@@ -1,0 +1,30 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="header">
+  <div class="header">
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_header",
+        "label": "Logo image"
+      },
+      {
+        "type": "linklist",
+        "id": "navbar",
+        "label": "Menu",
+        "default": "Menu"
+      }
+    ],
+    "presets": [
+      {
+        "name": "header",
+        "category": "Header"
+      }
+    ]
+  }
+{% endschema %}
