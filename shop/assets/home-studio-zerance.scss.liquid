@@ -117,14 +117,14 @@
 .slider__image {
   width: 100vw;
   height: 420px;
-  background-size: cover;
+  object-fit: cover;
 }
 
 .slider__encart{
   z-index: 2;
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 70%;
   transform: translate(-50%,-50%);
   background-color: #ffffff;
   width: 300px;
@@ -136,6 +136,60 @@
   width: 70%;
 }
 
-.slick-next {
-  z-index: 10;
+.slider__arrow {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  cursor: pointer;
+}
+
+.slider__arrow--prev {
+  left: 5%;
+}
+
+.slider__arrow--next {
+  left: 95%;
+}
+
+//INFINTE TEXT
+.infinite-text__container {
+  background-color: #ffcd1a;
+  height: 4rem;
+  max-width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+.infinite-text__title {
+  white-space: nowrap;
+  color: white;
+  display: block;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  animation: defile 20s  infinite;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: defile;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+}
+
+.infinite-text__text p{
+  color: white;
+}
+
+
+@keyframes defile {
+  0%,
+  100% {
+    margin-left: 0;
+  }
+  99.99% {
+    margin-left: -100%;
+  }
 }

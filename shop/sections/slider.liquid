@@ -1,5 +1,5 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="slider">
-  <div data-slider {% if section.settings.show_arrows == true %} data-slider-arrow="true" {% endif %}  class="slider relative {{ section.settings.slider_height}}">
+<section id="section-{{ section.id }}" class="section relative" data-section-id="{{ section.id }}" data-section-type="slider">
+  <div data-slider class="slider {{ section.settings.slider_height}}">
     {% for block in section.blocks %}
       <div class="slider__slides relative align-center">
         <img class="slider__image" src="{{ block.settings.slider_image | img_url : '1050x' }}">
@@ -12,7 +12,12 @@
         </div>
       </div>
     {% endfor %}
-
+  </div>
+  <div>
+    <img data-arrow-next class="slider__arrow slider__arrow--next" src="{{ section.settings.chevron_next | img_url : '250x' }}">
+  </div>
+  <div>
+    <img data-arrow-prev class="slider__arrow slider__arrow--prev slick-prev" src="{{ section.settings.chevron_previous | img_url : '250x' }}">
   </div>
 </section>
 
@@ -32,9 +37,14 @@
         ]
       },
       {
-        "type": "url",
-        "id": "link_svg",
-        "label": "Chevron slider"
+        "type": "image_picker",
+        "id": "chevron_next",
+        "label": "Chevron slider suivant"
+      },
+      {
+        "type": "image_picker",
+        "id": "chevron_previous",
+        "label": "Chevron slider precedent"
       }
     ],
 

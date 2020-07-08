@@ -4,16 +4,18 @@ theme.slider = new (function () {
   // init default settings
   var settings = {
     sliderSelector: "[data-slider]",
-    arrows: false,
+    arrows: true,
   };
 
   function slider() {
     if ($(settings.sliderSelector).data("slider-arrow") == true) {
       settings.arrows = true;
     }
-    console.log("hello");
+
     $(settings.sliderSelector).slick({
-      nextArrow: '<button type="button" class="slick-next"></button>',
+      nextArrow: '<button type="button" class="slick-prev"></button>',
+      prevArrow: '<button type="button" class="slick-prev"></button>',
+      arrows: settings.arrows,
     });
   }
 
