@@ -118,7 +118,7 @@
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
     {{ content_for_header }}
 
   </head>
@@ -128,8 +128,8 @@
       "general.accessibility.skip_to_content" | t
     }}</a>
 
-    {%- if settings.enable_ajax -%} {% include 'cart-popup' %} {%- endif -%} {% comment %}{%
-    section 'header' %}{% endcomment %}
+    {%- if settings.enable_ajax -%} {% include 'cart-popup' %} {%- endif -%}
+  {% section 'headerSZ' %}
 
     <div class="page-container drawer-page-content" id="PageContainer">
       <main
@@ -158,5 +158,9 @@
     </ul>
     {% if template contains "product" %}{% render "product-personalizer" %}{%
     endif %}
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,3 +1,6 @@
+{% assign menu = linklists[section.settings.navbar] %}
+
+
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="header">
 
@@ -14,10 +17,9 @@
         "label": "Logo image"
       },
       {
-        "type": "linklist",
+        "type": "link_list",
         "id": "navbar",
-        "label": "Menu",
-        "default": "Menu"
+        "label": "Menu"
       }
     ],
     "presets": [

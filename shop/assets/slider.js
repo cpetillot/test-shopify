@@ -3,7 +3,7 @@ window.theme = window.theme || {};
 theme.slider = new (function () {
   // init default settings
   var settings = {
-    bannerSelector: "[data-slider]",
+    sliderSelector: "[data-slider]",
     arrows: false,
   };
 
@@ -11,11 +11,10 @@ theme.slider = new (function () {
     if ($(settings.sliderSelector).data("slider-arrow") == true) {
       settings.arrows = true;
     }
-
+    console.log("hello");
     $(settings.sliderSelector).slick({
-      prevArrow: '<button type="button" class="prev_arrow">&lt;</button>',
-      nextArrow: '<button type="button" class="next_arrow">&gt;</button>',
-      arrows: settings.arrows,
+      nextArrow:
+        '<button type="button" class="slick-next"><svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></button>',
     });
   }
 

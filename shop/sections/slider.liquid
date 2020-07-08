@@ -1,7 +1,7 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="slider">
-  <div data_slider {% if section.settings.show_arrows == true %} data-slider-arrow="true" {% endif %}  class="slider {{ section.settings.slider_height}}">
+  <div data-slider {% if section.settings.show_arrows == true %} data-slider-arrow="true" {% endif %}  class="slider relative {{ section.settings.slider_height}}">
     {% for block in section.blocks %}
-      <div class="slider__slides relative">
+      <div class="slider__slides align-center">
         <img class="slider__image" src="{{ block.settings.slider_image | img_url : '1050x' }}">
         <div class="slider__encart">
           <div class="slider_subtitle align-center">{{ block.settings.slider_subtitle }}</div>

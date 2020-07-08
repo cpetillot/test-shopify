@@ -12,8 +12,19 @@
   font-size: 1.2rem;
   color: black;
 }
+/*
+.height--small {
+  height: 420px;
+}
 
-//.height--small
+.height--normal {
+  height: 520px;
+}
+
+.height--full {
+  height: 620px;
+}
+*/
 
 //HERO HEADER
 .hero-header {
@@ -27,7 +38,8 @@
   transform: translate(-50%,-50%);
 }
 
-strong{
+
+.underline-strong strong{
   background-image: url("https://cdn.shopify.com/s/files/1/0072/0561/7711/files/Calque_14.png?8187");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -49,10 +61,6 @@ strong{
   background-color: black;
 }
 
-.logos__container {
-  padding-left: 80px;
-  padding-right: 30px;
-}
 
 .logos__image-logo {
   width: 80%;
@@ -72,23 +80,24 @@ strong{
 //SLIDER
 
 .slider {
-  //display: flex;
-  overflow: hidden;
   width: 100vw;
 }
 
 .slider__slides {
-   width: 270vw;
+   width: 100%;
+   z-index: 0;
 }
 
 .slider__image {
-  width: 90vw;
+  width: 100vw;
+  height: 420px;
 }
 
 .slider__encart{
+  z-index: 2;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
   transform: translate(-50%,-50%);
   background-color: #ffffff;
   width: 300px;
@@ -98,4 +107,8 @@ strong{
 
 .slider_logo {
   width: 70%;
+}
+
+.slick-next {
+  z-index: 10;
 }

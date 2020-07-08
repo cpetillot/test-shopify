@@ -1,5 +1,5 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="heroHeader">
-  <div data_banner {% if section.settings.show_arrows == true %} data-banner-arrow="true" {% endif %} class="hero-header relative align-center">
+  <div class="hero-header relative align-center">
     <div class="hero-header__container">
       <p class="hero-header__subtitle align-center">{{ section.settings.hero_subtitle }}</p>
       <h1 class="hero-header__title underline-strong y-h1 align-center">{{ section.settings.hero_title }}</h1>
@@ -21,7 +21,7 @@
         "type": "richtext",
         "id": "hero_title",
         "label": "heading",
-        "default": "Ajoutez votre titre"
+        "default": "<p>Ajoutez votre titre</p>"
       }
     ],
     "presets": [
