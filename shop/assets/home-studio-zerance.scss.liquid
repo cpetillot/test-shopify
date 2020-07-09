@@ -1,49 +1,82 @@
 .y-h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: black;
+
+  @media(min-width: 768px) {
+    font-size: 3rem;
+  }
 }
 .y-h2 {
   font-size: 2.4rem;
   color: black;
+
+  @media(min-width: 768px) {
+    font-size: 1.6rem;
+  }
 }
 
 .y-p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: black;
+
+  @media(min-width: 768px) {
+    font-size: 1.1rem;
+  }
 }
 /*
 .height--small {
-  height: 420px;
+  height: 50vh;
 }
 
 .height--normal {
-  height: 520px;
+  height: 60vh;
 }
 
 .height--full {
-  height: 620px;
+  height: 70vh;
 }
 */
 //HEADER
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 20px;
-  margin-right: 30px;
-  margin-left: 30px;
+
+  @media(min-width: 768px) {
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-left: 30px;
+}
 }
 
 .header__logo {
   width: 60%;
-  padding-left: 30px;
+  padding-left: 15px;
+
+  @media(min-width: 768px) {
+    padding-left: 30px;
+  }
 }
 
-.header__menu a{
-  color : black;
-  font-weight: bold;
-  padding-right: 30px;
-  margin-top: 20px;
+.header__menu {
+  display: none;
+
+  @media(min-width: 768px) {
+  display: flex;
+  }
+
+
+  a{
+    color : black;
+    font-weight: bold;
+
+    @media(min-width: 768px) {
+    padding-right: 30px;
+    margin-top: 20px;
+    display: flex;
+    }
+  }
 }
 
 //HERO HEADER
@@ -56,6 +89,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  width: 80%;
+
+  @media(min-width: 768px) {
+    width: 60%;
+  }
 }
 
 .hero-header__title {
@@ -120,16 +158,24 @@
   z-index: 2;
   position: absolute;
   top: 50%;
-  left: 70%;
+  left: 50%;
   transform: translate(-50%,-50%);
   background-color: #ffffff;
   width: 300px;
   height: auto;
   padding: 24px;
+
+  @media (min-width: 768px) {
+    left: 70%;
+  }
 }
 
 .slider_logo {
-  width: 70%;
+  width: 55%;
+
+  @media (min-width: 768px) {
+    width: 70%;
+  }
 }
 
 .slider__arrow {
@@ -173,8 +219,12 @@
   animation-fill-mode: none;
   animation-play-state: running;
   animation-name: defile;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-timing-function: linear;
+
+  @media (min-width: 768px) {
+    animation-duration: 10s;
+  }
 }
 
 .infinite-text__text p{
