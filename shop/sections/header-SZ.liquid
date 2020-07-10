@@ -1,16 +1,23 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="header">
+<header id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="header">
     <div class="header__container-logo">
       <img class="header__logo" src="{{ section.settings.logo_header | img_url : '250x' }}">
     </div>
-    <div class="header__menu y-p">
-      {% assign menu = linklists[section.settings.navbar] %}
-      {% for link in menu.links %}
-        <a href="{{link.url}}">{{ link.title }}</a>
-      {%endfor%}
+    <div class="header__mobile--item">
+      <div class="SVG">
     </div>
+    <nav class="header__naviguation">
+      <ul class="header__menu--items">
+        {% assign menu = linklists[section.settings.navbar] %}
+        {% for link in menu.links %}
+        <li class="header__menu--item y-p">
+          <a class="heading" href="{{link.url}}">{{ link.title }}</a>
+        </li>
+        {%endfor%}
+      </ul>
+    </nav>
   </div>
-</section>
+</header>
 
 {% schema %}
   {

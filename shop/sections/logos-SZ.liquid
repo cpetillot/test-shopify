@@ -1,14 +1,19 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="logos">
   <div class="logos align-center">
-    <div class="logos__container">
+    <div class="logos__container-title align-center">
       <div class="logos__subtitle align-center">{{ section.settings.logo_title }}</div>
-
     </div>
-    <div class="z-grid z-grid--center">
+    <div class="logos__container z-grid z-grid--center">
         {% for block in section.blocks %}
           <div class="z-grid__cell 1/{{ section.settings.number_logos }}--desk 1/{{ section.settings.number_logos_mobile }}--thumb grid__cell">
-            <div class="align-center">
+            <div class=" logo__container align-center">
+              {% if block.settings.url_logos != blank %}
+                <a href="{{ block.settings.url_logos }}" >
+              {% endif %}
               <img class="logos__image-logo" src="{{ block.settings.logos_img | img_url : '250x' }}">
+              {% if block.settings.url_logos != blank %}
+                </a>
+              {% endif %}
             </div>
           </div>
         {% endfor %}
