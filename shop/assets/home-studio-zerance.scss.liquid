@@ -8,7 +8,7 @@
   }
 }
 .y-h2 {
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   color: black;
 
   @media(min-width: 768px) {
@@ -50,6 +50,24 @@
 }
 }
 
+.header__mobile--item {
+  display: flex;
+  padding-top: 20px;
+  padding-right: 20px;
+
+  @media(min-width: 768px) {
+    display: none;
+  }
+}
+
+.header__navigation {
+  display: none;
+
+  @media(min-width: 768px) {
+    display: flex;
+  }
+}
+
 .header__logo {
   width: 60%;
   padding-left: 15px;
@@ -59,8 +77,9 @@
   }
 }
 
-.header__menu {
+.header__menu--items {
   display: none;
+  cursor: pointer;
 
   @media(min-width: 768px) {
   display: flex;
@@ -79,10 +98,32 @@
   }
 }
 
-//HERO HEADER
-.hero-header {
-  height: 65vh;
+.side-nav {
+  position: fixed;
+  transition: 0.4s;
+  transform: translateX(-100%);
+  background: #fff;
+  left: 0;
+  min-height: 80vh;
+  width: 100%;
+  border-top: 1px solid #000;
+  text-align: center;
+  padding: 20px;
+  overflow: scroll;
+  bottom: 0;
+  z-index: 44;
+  overflow: hidden;
 }
+
+.side-nav--open {
+  transform: translateX(0%);
+}
+
+.side-nav__heading {
+  font-weight: bold;
+}
+
+//HERO HEADER
 
 .hero-header__container {
   position: absolute;
@@ -90,15 +131,16 @@
   left: 50%;
   transform: translate(-50%,-50%);
   width: 80%;
+  max-width: 60vw;
 
   @media(min-width: 768px) {
-    width: 60%;
+    width: 70%;
+    max-width: 50vw;
   }
 }
 
 .hero-header__title {
   line-height: 1.6;
-  max-width: 50vw;
   margin: auto;
 }
 
@@ -107,6 +149,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center 100%;
+
 }
 
 //LOGOS
@@ -125,7 +168,7 @@
 }
 
 .logos__container {
-  max-width: 700px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -166,21 +209,29 @@
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: #ffffff;
-  width: 300px;
+  width: 280px;
   height: auto;
   padding: 24px;
 
   @media (min-width: 768px) {
     left: 70%;
+    width: 350px;
   }
 }
 
-.slider_logo {
-  width: 55%;
+
+.slider__logo {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
     width: 70%;
   }
+}
+
+.slider__richtext p{
+  line-height: 120%;
 }
 
 .slider__arrow {

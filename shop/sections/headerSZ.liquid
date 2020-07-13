@@ -1,0 +1,59 @@
+<header id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="header">
+  <div class="header">
+    <div class="header__container-logo">
+      <img class="header__logo" src="{{ section.settings.logo_header | img_url : '250x' }}">
+    </div>
+    <div class="header__mobile--item">
+      <div class="header__mobile-item" data-header-toggle>
+        <svg class="icon icon-hamburger" viewBox="0 0 20 20 ">
+          <path fill="#444" d="M17.543 6.2H2.1a1.032 1.032 0 0 1-1.029-1.029c0-.566.463-1.029 1.029-1.029h15.443c.566 0 1.029.463 1.029 1.029 0 .566-.463 1.029-1.029 1.029zm0 4.829H2.1A1.032 1.032 0 0 1 1.071 10c0-.566.463-1.029 1.029-1.029h15.443c.566 0 1.029.463 1.029 1.029 0 .566-.463 1.029-1.029 1.029zm0 4.828H2.1a1.032 1.032 0 0 1-1.029-1.029c0-.566.463-1.029 1.029-1.029h15.443c.566 0 1.029.463 1.029 1.029 0 .566-.463 1.029-1.029 1.029z"></path>
+        </svg>
+      </div>
+    </div>
+    <nav role="navigation" class="header__navigation ">
+      <ul class="header__menu--items">
+        {% assign menu = linklists[section.settings.navbar] %}
+        {% for link in menu.links %}
+        <li class="header__menu--item y-p">
+          <a class="heading" href="{{link.url}}">{{ link.title }}</a>
+        </li>
+        {%endfor%}
+      </ul>
+    </nav>
+  </div>
+</header>
+<div data-header-side-nav class="side-nav">
+  <div class="side-nav__nav">
+    <nav role="navigation">
+      <ul>
+        <li><a class="heading y-h2 side-nav__heading" href="">Nos Clients</a></li>
+        <li><a class="heading y-h2 side-nav__heading" href="">Le Studio</a></li>
+        <li><a class="heading y-h2 side-nav__heading" href="">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_header",
+        "label": "Logo image"
+      },
+      {
+        "type": "link_list",
+        "id": "navbar",
+        "label": "Menu"
+      }
+    ],
+    "presets": [
+      {
+        "name": "header",
+        "category": "Header"
+      }
+    ]
+  }
+{% endschema %}

@@ -13,8 +13,8 @@ theme.slider = new (function () {
     }
 
     $(settings.sliderSelector).slick({
-      nextArrow: '<button type="button" class="slick-next"></button>',
-      prevArrow: '<button type="button" class="slick-prev"></button>',
+      nextArrow: $("[data-arrow-next]"),
+      prevArrow: $("[data-arrow-prev]"),
       arrows: settings.arrows,
     });
   }

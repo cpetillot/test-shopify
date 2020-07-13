@@ -8,6 +8,12 @@
   </div>
 </section>
 
+<style>
+.infinite-text__text {
+  animation-duration: {{ section.settings.text_speed }};
+}
+</style>
+
 
 {% schema %}
   {
@@ -23,11 +29,11 @@
 				"type": "range",
         "id": "text_speed",
         "min": 1,
-        "max": 5,
+        "max": 15,
         "step": 1,
         "unit": "sc",
         "label": "Vitesse de défilement du texte",
-        "default": 3
+        "default": 5
 			}
     ],
     "presets": [

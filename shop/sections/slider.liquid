@@ -2,22 +2,22 @@
   <div data-slider class="slider  ">
     {% for block in section.blocks %}
       <div class="slider__slides relative align-center">
-        <img class="slider__image  height--small height--normal height--fullscreen{{ section.settings.slider_height}}" src="{{ block.settings.slider_image | img_url : '1050x' }}">
+        <img class="slider__image {{ section.settings.slider_height}}" src="{{ block.settings.slider_image | img_url : '1050x' }}">
         <div class="slider__encart">
-          <div class="slider_subtitle align-center">{{ block.settings.slider_subtitle }}</div>
-          <div class="align-center">
-            <img class="slider_logo align-center" src="{{ block.settings.slider_logo | img_url : '250x' }}">
+          <div class="slider__subtitle align-center">{{ block.settings.slider_subtitle }}</div>
+          <div class="align-center margin-auto">
+            <img class="slider__logo align-center" src="{{ block.settings.slider_logo | img_url : '250x' }}">
           </div>
-          <div class="slider_slider_richtext y-p align-center">{{ block.settings.slider_richtext }}</div>
+          <div class="slider__richtext y-p align-center">{{ block.settings.slider_richtext }}</div>
         </div>
       </div>
     {% endfor %}
   </div>
-  <div>
-    <img data-arrow-next class="slider__arrow slider__arrow--next" src="{{ section.settings.chevron_next | img_url : '250x' }}">
+  <div >
+    <img class="slider__arrow slider__arrow--prev slick-prev" data-arrow-prev  src="{{ section.settings.chevron_previous | img_url : '250x' }}">
   </div>
-  <div>
-    <img data-arrow-prev class="slider__arrow slider__arrow--prev slick-prev" src="{{ section.settings.chevron_previous | img_url : '250x' }}">
+  <div >
+    <img class="slider__arrow slider__arrow--next" data-arrow-next  src="{{ section.settings.chevron_next | img_url : '250x' }}">
   </div>
 </section>
 
