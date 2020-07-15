@@ -1,12 +1,26 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="feature-collection-sz">
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="feature-collection">
   <div class="feature-collection">
     <div class="align-center">
       <p class="feature-collection__title y-h2 align-center">{{ section.settings.feature_collection_title }}</p>
     </div>
-    <div class="align-center">
-      <div class="feature-collection__collection align-center">{{ section.settings.feature_collection }}</div>
-    </div>
+    <div class="z-grid z-grid--center">
 
+      {%- assign collection = collections[section.settings.collection] -%}
+
+      {% for product in collection.products limit: 6 %}
+        <div class="z-grid__cell 1/{{ section.settings.number_items_desktop }}--desk 1/{{ section.settings.number_items_mobile }} grid__cell">
+          <a href="{{ product.url | within: collection }}" class="feature-collection-item">
+            <div class="align-center">
+              {% for image in product.images %}
+                <img src="{{ image | img_url: '300x' }}"  alt="photo de basket" >
+              {% endfor %}
+              <p>{{ product.title | escape }}</p>
+              <span>{{ product.price | money }}</span>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -21,30 +35,30 @@
         "default": "Ecrivez votre titre"
       },
       {
-         "type": "collection",
-         "id": "feature_collection",
-         "label": "Feature collection"
-       },
-      {
-        "type": "range",
-        "id": "number_items_row",
-        "min": 2,
-        "max": 5,
-        "step": 1,
-        "unit": "pc",
-        "label": "Produits par lignes",
-        "default": 3
+        "type": "collection",
+        "id": "collection",
+        "label": "collection"
       },
       {
         "type": "range",
-        "id": "number_items_column",
-        "min": 1,
-        "max": 4,
+        "id": "number_items_desktop",
+        "min": 3,
+        "max": 5,
         "step": 1,
         "unit": "pc",
-        "label": "Nombres de columnes",
-        "default": 2
-      }
+        "label": "number of items desktop",
+        "default": 3
+    },
+    {
+        "type": "range",
+        "id": "number_items_mobile",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "unit": "pc",
+        "label": "number of items mobile",
+        "default": 1
+    }
     ],
       "presets": [
         {
