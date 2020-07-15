@@ -1,10 +1,19 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="hero-header">
+  {% if section.settings.background_color == false %}
   <div class="hero-header relative align-center {{ section.settings.banner_height}}">
     <div class="hero-header__container align-center">
-      <p class="hero-header__subtitle align-center">{{ section.settings.hero_subtitle }}</p>
-      <h1 class="hero-header__title underline-strong y-h1 align-center">{{ section.settings.hero_title }}</h1>
+      <p class="hero-header__subtitle color--black align-center">{{ section.settings.hero_subtitle }}</p>
+      <h1 class="hero-header__title color--black underline-strong y-h1 align-center">{{ section.settings.hero_title }}</h1>
     </div>
   </div>
+  {% else %}
+  <div class="hero-header background--black relative align-center {{ section.settings.banner_height}}">
+    <div class="hero-header__container align-center">
+      <p class="hero-header__subtitle color--white align-center">{{ section.settings.hero_subtitle }}</p>
+      <h1 class="hero-header__title p-color--white underline-strong y-h1 align-center">{{ section.settings.hero_title }}</h1>
+    </div>
+  </div>
+  {% endif %}
 </section>
 
 
