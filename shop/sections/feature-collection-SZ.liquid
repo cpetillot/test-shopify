@@ -9,11 +9,27 @@
 
       {% for product in collection.products limit: 6 %}
         <div class="z-grid__cell 1/{{ section.settings.number_items_desktop }}--desk 1/{{ section.settings.number_items_mobile }} grid__cell">
-          <a href="{{ product.url | within: collection }}" class="feature-collection-item">
+          <a href="{{ product.url | within: collection }}" class="feature-collection__item">
             <div class="align-center">
-              {% for image in product.images %}
-                <img src="{{ image | img_url: '300x' }}"  alt="photo de basket" >
-              {% endfor %}
+              <div class="reveal ">
+                <img src="{{ product.images[0] | img_url: '300x' }}"  alt="photo de basket" >
+                <div class="hidden">
+                  <img class="feature-collection__img-hidden" src="{{ product.images[1] | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
+                  <div class="caption">
+                    <div class="centered">
+                      {% form "product", product %}
+                        {% for variant in product.variants %}
+                          <label class="container">{{ variant.title}}
+                            <input type="checkbox" value="{{ variant.id }}" />
+                            <span class="checkmark"></span>
+                          </label>
+                        {% endfor %}
+                        <input type="submit" value="Ajoutez au panier" class="btn">
+                      {% endform %}
+                    </div>
+                  </div>
+                </div>
+              </div>
               <p>{{ product.title | escape }}</p>
               <span>{{ product.price | money }}</span>
             </div>
