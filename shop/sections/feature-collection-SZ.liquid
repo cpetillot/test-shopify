@@ -19,12 +19,12 @@
                     <div class="centered">
                       {% form "product", product %}
                         {% for variant in product.variants %}
-                          <label class="container">{{ variant.title}}
-                            <input type="checkbox" value="{{ variant.id }}" />
-                            <span class="checkmark"></span>
+                          <label class="feature-collection__select-container container">{{ variant.title}}
+                            <input type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
+                            <div class="feature-collection__checkmark checkmark"></div>
                           </label>
                         {% endfor %}
-                        <input type="submit" value="Ajoutez au panier" class="btn">
+                        <input class="feature-collection__btn btn" type="feature-collection__submit" value="Ajoutez au panier">
                       {% endform %}
                     </div>
                   </div>
