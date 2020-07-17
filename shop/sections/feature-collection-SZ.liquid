@@ -22,8 +22,12 @@
                         <div class="feature-collection__container-label">
                           {% for variant in product.variants %}
                             <label class="feature-collection__select-container ">{{ variant.title | escape }}
-                              <input type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
-                              <span class="feature-collection__checkmark checkmark"></span>
+                              {% if variant.available == false %}
+
+                              {% else %}
+                                <input class="feature-collection__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
+                                <span class="feature-collection__checkmark checkmark"></span>
+                              {% endif %}
                             </label>
                           {% endfor %}
                         </div>
