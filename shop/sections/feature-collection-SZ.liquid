@@ -18,13 +18,16 @@
                   <div class="caption">
                     <div class="centered">
                       {% form "product", product %}
-                        {% for variant in product.variants %}
-                          <label class="feature-collection__select-container container">{{ variant.title}}
-                            <input type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
-                            <div class="feature-collection__checkmark checkmark"></div>
-                          </label>
-                        {% endfor %}
-                        <input class="feature-collection__btn btn" type="feature-collection__submit" value="Ajoutez au panier">
+                      <input type="hidden" name="id">
+                        <div class="feature-collection__container-label">
+                          {% for variant in product.variants %}
+                            <label class="feature-collection__select-container ">{{ variant.title | escape }}
+                              <input type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
+                              <span class="feature-collection__checkmark checkmark"></span>
+                            </label>
+                          {% endfor %}
+                        </div>
+                        <input class="feature-collection__btn btn" type="submit" value="Ajoutez au panier">
                       {% endform %}
                     </div>
                   </div>
