@@ -16,23 +16,32 @@
                 <div class="hidden">
                   <img class="feature-collection__img-hidden" src="{{ product.images[1] | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
                   <div class="caption">
-                    <div class="centered">
-                      {% form "product", product %}
+                    <div class="centered relative">
+                      <p class="feature-collection__size">Choisissez votre taille :</p>
+                      <form class="feature-collection__form" method="post" action="/cart/add">
                       <input type="hidden" name="id">
                         <div class="feature-collection__container-label">
                           {% for variant in product.variants %}
-                            <label class="feature-collection__select-container ">{{ variant.title | escape }}
-                              {% if variant.available == false %}
+                            <label type="hidden" class="feature-collection__select-container ">
 
+                              {% if variant.available == true %}
+                                <input class="feature-collection__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}"/>
+                                <div class="feature-collection__checkmark--1 checkmark">
+                                  <div class="feature-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
+                                </div>
                               {% else %}
-                                <input class="feature-collection__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
-                                <span class="feature-collection__checkmark checkmark"></span>
+                                <input class="feature-collection__disabled-input" type="radio" name="group2" disabled="disabled" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
+                                <div class="feature-collection__checkmark--2 checkmark">
+                                  <div class="feature-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
+                                  <div class="feature-collection__disabled-checkmark"></div>
+                                </div>
                               {% endif %}
+
                             </label>
                           {% endfor %}
                         </div>
-                        <input class="feature-collection__btn btn" type="submit" value="Ajoutez au panier">
-                      {% endform %}
+                      <input class="feature-collection__btn btn" type="submit" value="Ajoutez au panier">
+                    </form>
                     </div>
                   </div>
                 </div>
