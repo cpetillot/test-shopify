@@ -1,9 +1,11 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="infinite-text">
   <div class="infinite-text">
     <div class="infinite-text__container relative">
+      {% unless section.settings.text_infinite == blank %}
       <h2 class="infinite-text__title absolute">
         <span class="infinite-text__text">{{ section.settings.text_infinite }}</span>
       </h2>
+      {% endunless %}
     </div>
   </div>
 </section>

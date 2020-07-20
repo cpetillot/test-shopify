@@ -10,7 +10,9 @@
               {% if block.settings.url_logos != blank %}
                 <a href="{{ block.settings.url_logos }}" >
               {% endif %}
+              {% unless block.settings.logos_img == blank %}
               <img class="logos__image-logo" src="{{ block.settings.logos_img | img_url : '250x' }}">
+              {% endunless %}
               {% if block.settings.url_logos != blank %}
                 </a>
               {% endif %}

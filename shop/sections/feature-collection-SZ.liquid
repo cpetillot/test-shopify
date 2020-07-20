@@ -1,46 +1,44 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="feature-collection">
-  <div class="feature-collection">
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="featured-collection">
+  <div class="featured-collection">
     <div class="align-center">
-      <p class="feature-collection__title y-h2 align-center">{{ section.settings.feature_collection_title }}</p>
+      {% unless section.settings.featured_collection_title == blank %}
+      <p class="featured-collection__title y-h2 align-center">{{ section.settings.featured_collection_title }}</p>
+      {% endunless %}
     </div>
     <div class="z-grid z-grid--center">
-
       {%- assign collection = collections[section.settings.collection] -%}
-
       {% for product in collection.products limit: 6 %}
         <div class="z-grid__cell 1/{{ section.settings.number_items_desktop }}--desk 1/{{ section.settings.number_items_mobile }} grid__cell">
-          <a href="{{ product.url | within: collection }}" class="feature-collection__item">
+          <a href="{{ product.url | within: collection }}" class="featured-collection__item">
             <div class="align-center">
               <div class="reveal ">
-                <img src="{{ product.images[0] | img_url: '300x' }}"  alt="photo de basket" >
+                <img src="{{ product.images[0] | img_url: '300x' }}"  alt="" >
                 <div class="hidden">
-                  <img class="feature-collection__img-hidden" src="{{ product.images[1] | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
+                  <img class="featured-collection__img-hidden" src="{{ product.images[1] | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
                   <div class="caption">
                     <div class="centered relative">
-                      <p class="feature-collection__size">Choisissez votre taille :</p>
-                      <form class="feature-collection__form" method="post" action="/cart/add">
+                      <p class="featured-collection__size">Choisissez votre taille :</p>
+                      <form class="featured-collection__form" method="post" action="/cart/add">
                       <input type="hidden" name="id">
-                        <div class="feature-collection__container-label">
+                        <div class="featured-collection__container-label">
                           {% for variant in product.variants %}
-                            <label type="hidden" class="feature-collection__select-container ">
-
+                            <label type="hidden" class="featured-collection__select-container ">
                               {% if variant.available == true %}
-                                <input class="feature-collection__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}"/>
-                                <div class="feature-collection__checkmark--1 checkmark">
-                                  <div class="feature-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
+                                <input class="featured-collection__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}"/>
+                                <div class="featured-collection__checkmark--1 checkmark">
+                                  <div class="featured-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
                                 </div>
                               {% else %}
-                                <input class="feature-collection__disabled-input" type="radio" name="group2" disabled="disabled" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
-                                <div class="feature-collection__checkmark--2 checkmark">
-                                  <div class="feature-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
-                                  <div class="feature-collection__disabled-checkmark"></div>
+                                <input class="featured-collection__disabled-input" type="radio" name="group2" disabled="disabled" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
+                                <div class="featured-collection__checkmark--2 checkmark">
+                                  <div class="featured-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
+                                  <div class="featured-collection__disabled-checkmark"></div>
                                 </div>
                               {% endif %}
-
                             </label>
                           {% endfor %}
                         </div>
-                      <input class="feature-collection__btn btn" type="submit" value="Ajoutez au panier">
+                      <input class="featured-collection__btn btn" type="submit" value="Ajoutez au panier">
                     </form>
                     </div>
                   </div>
@@ -58,11 +56,11 @@
 
 {% schema %}
   {
-    "name": "feature-collection",
+    "name": "featured-collection",
     "settings": [
       {
         "type": "text",
-        "id": "feature_collection_title",
+        "id": "featured_collection_title",
         "label": "Titre",
         "default": "Ecrivez votre titre"
       },
@@ -94,7 +92,7 @@
     ],
       "presets": [
         {
-          "name": "Feature Collection SZ",
+          "name": "featured Collection SZ",
           "category": "Collection"
         }
       ]

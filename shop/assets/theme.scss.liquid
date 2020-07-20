@@ -8726,13 +8726,17 @@ $min-height-disclosure: 92px;
   position: absolute;
   z-index: -1;
   top: 0;
-  width: 90%;
+  width: 100%;
   height: 100%;
   opacity: 0;
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
 }
 .reveal:hover .hidden {
   z-index: 100000;
@@ -8753,13 +8757,8 @@ $min-height-disclosure: 92px;
   text-align: center;
   text-rendering: optimizeLegibility;
   border-radius: 4px;
+
 }
-/*
-.reveal .hidden .caption .centered {
-  display: table-cell;
-  vertical-align: middle;
-}
-*/
 
 @media (min-width: 480px) and (max-width: 979px) {
   .reveal .caption {
