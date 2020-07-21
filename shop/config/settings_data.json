@@ -58,108 +58,11 @@
           "logo_max_width": 170,
           "main_linklist": "main-menu",
           "message": false,
-          "home_page_only": true,
+          "home_page_only": false,
           "message_text": "Announce something here",
           "message_link": "",
           "color_bg": "#000033",
           "color_text": "#000033"
-        }
-      },
-      "hero-1": {
-        "type": "hero",
-        "settings": {
-          "image": "shopify:\/\/shop_images\/model-in-black-and-orange-sneakers-perched-atop-stairs.jpg",
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "large",
-          "text_size": "large",
-          "title": "Old but gold",
-          "text": "<p>Discover our legendary sneakers collection.<\/p>",
-          "button_label": "See more",
-          "button_link": "shopify:\/\/collections\/frontpage"
-        }
-      },
-      "feature-row": {
-        "type": "feature-row",
-        "settings": {
-          "image": "shopify:\/\/shop_images\/Reebok-Classic-Leather-White-Gum-2-1600.jpg",
-          "layout": "left",
-          "title": "Sneakers of the month",
-          "text": "<p>The Sneakers selected it's sneaker of the month :&nbsp;The Reebok Classic Leather. Purchase this original sneakers from 1983 at a special price.<\/p>",
-          "button_label": "Shop now",
-          "button_link": "shopify:\/\/products\/classic-leather-reebok-1983"
-        }
-      },
-      "feature-columns": {
-        "type": "feature-columns",
-        "blocks": {
-          "feature-columns-0": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "image": "shopify:\/\/shop_images\/Wethenew-Sneakers-france-Nike-Air-Force-1-Sketch-Black-Swoosh.png",
-              "title": "Air Force 1 Sketch Black Swoosh",
-              "text": "<p>Original sketch Air force One released in April 2020<\/p>",
-              "button_label": "See more",
-              "button_link": "shopify:\/\/collections\/all"
-            }
-          },
-          "feature-columns-1": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "image": "shopify:\/\/shop_images\/10016655-chaussures-nike-air-force-1-lv8-jaune-noire-et-blanche-multi-swoosh-vue-exterieure.png",
-              "title": "Air Force 1 LV8 Jaune, Noire et Blanche Multi Swoosh",
-              "text": "<p>Unique style with interchangeable swoosh<\/p>",
-              "button_label": "see more",
-              "button_link": "shopify:\/\/collections\/all"
-            }
-          },
-          "feature-columns-2": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "image": "shopify:\/\/shop_images\/Wethenew-Sneakers-France-Nike-Air-Force-1-Low-Off-White-MCA-University-Blue-1.png",
-              "title": "Air Force 1 Low Off-White MCA University Blue",
-              "text": "<p>New collaboration between Nike and Off-white for this special sneaker<\/p>",
-              "button_label": "See more",
-              "button_link": "shopify:\/\/collections\/all"
-            }
-          }
-        },
-        "block_order": [
-          "feature-columns-0",
-          "feature-columns-1",
-          "feature-columns-2"
-        ],
-        "settings": {
-          "title": "NEW AIR FORCE 1 COLLECTION",
-          "align_text": "left"
-        }
-      },
-      "collection": {
-        "type": "collection",
-        "settings": {
-          "title": "Sneakers collection",
-          "collection": "frontpage",
-          "grid": 4,
-          "rows": 2,
-          "show_vendor": true,
-          "show_view_all": true
-        }
-      },
-      "hero-2": {
-        "type": "hero",
-        "settings": {
-          "image": "shopify:\/\/shop_images\/adidas_gazelle_rouge.jpg",
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "medium",
-          "text_size": "large",
-          "title": "ADIDAS GAZELLE",
-          "text": "<p><strong>Story of a timeless sneaker that plays on all fields<\/strong><\/p>",
-          "button_label": "See more",
-          "button_link": "shopify:\/\/products\/gazelle-adidas-1968"
         }
       },
       "footer": {
@@ -203,19 +106,6 @@
           "tags_enable": true
         }
       },
-      "1592835792050": {
-        "type": "video",
-        "settings": {
-          "image": "",
-          "image_position": "center center",
-          "video_link": "https:\/\/www.youtube.com\/watch?v=mRhubniJQeQ",
-          "show_overlay": false,
-          "style": "background",
-          "height": "medium",
-          "video_title": "",
-          "text_size": "large"
-        }
-      },
       "product-template": {
         "type": "product-template",
         "settings": {
@@ -252,26 +142,278 @@
           "cart_notes_enable": false
         }
       },
-      "1592924965774": {
-        "type": "featured-blog",
+      "1594047200345": {
+        "type": "bannerSZ",
         "settings": {
-          "title": "Articles de blog",
-          "blog": "news",
-          "post_limit": 3,
-          "blog_show_author": false,
-          "blog_show_date": true,
-          "show_view_all": false
+          "hero_subtitle": "SINCE 2016",
+          "banner_height": "height--small",
+          "hero_title": "<p>&lt; We create from scratch amazing <strong>Shopify<\/strong> \/&gt;<\/p>",
+          "hero_title_hn": "h1",
+          "background_color": false
+        }
+      },
+      "1594050183235": {
+        "type": "logosSZ",
+        "blocks": {
+          "1594050207116": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/avnihr.jpg",
+              "url_logos": "https:\/\/avnier.com\/"
+            }
+          },
+          "1594051641440": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/big-fernand.jpg",
+              "url_logos": ""
+            }
+          },
+          "1594051657282": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/blown.jpg",
+              "url_logos": "https:\/\/blown.paris\/"
+            }
+          },
+          "1594051674150": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/bonsoirs.jpg",
+              "url_logos": "https:\/\/www.bonsoirs.com\/"
+            }
+          },
+          "1594051686592": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/cdiscount.jpg",
+              "url_logos": ""
+            }
+          },
+          "1594051727734": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/fempo.jpg",
+              "url_logos": "https:\/\/fempo.co\/"
+            }
+          },
+          "1594051739565": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/la-fourche.jpg",
+              "url_logos": "https:\/\/lafourche.fr\/"
+            }
+          },
+          "1594051755670": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/respire.jpg",
+              "url_logos": "https:\/\/www.respire.co\/"
+            }
+          },
+          "1594051768250": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/rivieira.jpg",
+              "url_logos": "https:\/\/rivieras.com\/"
+            }
+          },
+          "1594051789105": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/seasonly.jpg",
+              "url_logos": "https:\/\/seasonly.fr\/"
+            }
+          },
+          "1594051801460": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/tealer.jpg",
+              "url_logos": "https:\/\/tealer.fr\/"
+            }
+          },
+          "1594051818626": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/thefamily.jpg",
+              "url_logos": ""
+            }
+          },
+          "1594051832026": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/webedia.jpg",
+              "url_logos": ""
+            }
+          },
+          "1594051845841": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/yoko.jpg",
+              "url_logos": "https:\/\/yokoshop.com\/"
+            }
+          },
+          "1594051862649": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/mars.png",
+              "url_logos": ""
+            }
+          },
+          "1594052769867": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/joone.jpg",
+              "url_logos": "https:\/\/www.joone.fr\/"
+            }
+          },
+          "1594052810197": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/boxtal_0cdce8c0-661d-4c46-97e8-63d555a84a33.jpg",
+              "url_logos": "https:\/\/www.boxtal.com\/fr\/fr\/accueil"
+            }
+          },
+          "1594052829538": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/franklin.png",
+              "url_logos": "https:\/\/franklinpetfood.com\/"
+            }
+          },
+          "1594052863364": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/rondorff.jpg",
+              "url_logos": "https:\/\/www.rondorff.com\/"
+            }
+          },
+          "1594052877142": {
+            "type": "image",
+            "settings": {
+              "logos_img": "shopify:\/\/shop_images\/saeve.jpg",
+              "url_logos": "https:\/\/saeve.com\/"
+            }
+          }
+        },
+        "block_order": [
+          "1594050207116",
+          "1594051641440",
+          "1594051657282",
+          "1594051674150",
+          "1594051686592",
+          "1594051727734",
+          "1594051739565",
+          "1594051755670",
+          "1594051768250",
+          "1594051789105",
+          "1594051801460",
+          "1594051818626",
+          "1594051832026",
+          "1594051845841",
+          "1594051862649",
+          "1594052769867",
+          "1594052810197",
+          "1594052829538",
+          "1594052863364",
+          "1594052877142"
+        ],
+        "settings": {
+          "logo_title": "<p>NOS CLIENTS SONT G&Eacute;NIAUX !<\/p>",
+          "cta": "< <strong>voir plus<\/strong> \/>",
+          "url_bouton": "shopify:\/\/pages\/store-locator",
+          "number_logos": 5,
+          "number_logos_mobile": 4
+        }
+      },
+      "1594123539429": {
+        "type": "slider",
+        "blocks": {
+          "1594123565284": {
+            "type": "image",
+            "settings": {
+              "slider_image": "shopify:\/\/shop_images\/Artboard_2.jpg",
+              "slider_logo": "shopify:\/\/shop_images\/logo-seasonly.png",
+              "slider_subtitle": "<p>FROM SCRATCH \/<\/p>",
+              "slider_richtext": "<p>-&nbsp;D&eacute;veloppement d'un th&egrave;me from scratch<\/p>\n<p>-&nbsp;Quizz de personnalisation produit<\/p>\n<p>- Syst&egrave;me d'abonnement (recharge)<\/p>\n<p>- Conseil et accompagnement<\/p>"
+            }
+          },
+          "1594124638553": {
+            "type": "image",
+            "settings": {
+              "slider_image": "shopify:\/\/shop_images\/Artboard_1.jpg",
+              "slider_logo": "shopify:\/\/shop_images\/logo-joone.png",
+              "slider_subtitle": "<p>RECHARGE FEATURES \/<\/p>",
+              "slider_richtext": "<p>- D&eacute;veloppement front-end<\/p>\n<p>- Features avanc&eacute;es Recharge (paiement r&eacute;curent)<\/p>\n<p>- Interface analytics sur-mesure<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1594123565284",
+          "1594124638553"
+        ],
+        "settings": {
+          "slider_height": "height--normal",
+          "chevron_next": "shopify:\/\/shop_images\/chevronNext.png",
+          "chevron_previous": "shopify:\/\/shop_images\/chevronPrevious.png"
+        }
+      },
+      "headerSZ": {
+        "type": "headerSZ",
+        "settings": {
+          "logo_header": "shopify:\/\/shop_images\/logo_studio-zerance_1200x1200_18e89ccf-0242-4aa6-b6e9-5bcb2771072f.png",
+          "navbar": "menu-zerance"
+        }
+      },
+      "1594210836825": {
+        "type": "infiniteText",
+        "settings": {
+          "text_infinite": "<p>Nous &eacute;tions 4 en 2018, nous sommes 14 en 2020 ! \/ Studio Zerance, Experts Shopify de p&egrave;re en fils depuis 2016 \/&nbsp; En langue bretonne, Studio Zerance se dit Studio Zerance \/ C'est plus agr&eacute;able en vrai, venez donc discuter de votre projet autour d'un th&eacute; dans nos supers bureaux du Sentier \/ Pour votre s&eacute;curit&eacute;, veuillez conserver une distance de s&eacute;curit&eacute; d'1,5 m&egrave;tres avec nos d&eacute;veloppeurs, merci \/&nbsp;Nous &eacute;tions 4 en 2018, nous sommes 14 en 2020 ! \/ Studio Zerance, Experts Shopify de p&egrave;re en fils depuis 2016 \/&nbsp; En langue bretonne, Studio Zerance se dit Studio Zerance \/ C'est plus agr&eacute;able en vrai, venez donc discuter de votre projet autour d'un th&eacute; dans nos supers bureaux du Sentier \/ Pour votre s&eacute;curit&eacute;, veuillez conserver une distance de s&eacute;curit&eacute; d'1,5 m&egrave;tres avec nos d&eacute;veloppeurs, merci \/&nbsp;<\/p>",
+          "text_speed": 7
+        }
+      },
+      "1594650405379": {
+        "type": "feature-collection-SZ",
+        "settings": {
+          "featured_collection_title": "Collection Printemps-Été",
+          "hero_title_hn": "h2",
+          "collection": "home",
+          "number_items_desktop": 3,
+          "number_items_mobile": 1
+        }
+      },
+      "1595341985204": {
+        "type": "mega-section",
+        "blocks": {
+          "1595345243473": {
+            "type": "banner-content",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/logo_studio-zerance_1200x1200_18e89ccf-0242-4aa6-b6e9-5bcb2771072f.png",
+              "bg": "#8a8888",
+              "bg-sec": "",
+              "color-title": "",
+              "color": "",
+              "title": "",
+              "text": "",
+              "url": "",
+              "cta": ""
+            }
+          }
+        },
+        "block_order": [
+          "1595345243473"
+        ],
+        "settings": {
         }
       }
     },
     "content_for_index": [
-      "hero-1",
-      "collection",
-      "feature-row",
-      "1592835792050",
-      "feature-columns",
-      "hero-2",
-      "1592924965774"
+      "1594047200345",
+      "1594050183235",
+      "1594123539429",
+      "1594210836825",
+      "1594650405379",
+      "1595341985204"
     ]
   },
   "presets": {
