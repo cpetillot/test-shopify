@@ -1,5 +1,5 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="featured-collection">
-  <div class="featured-collection">
+  <div class="featured-collection page-width">
     <div class="align-center">
       {% unless section.settings.featured_collection_title == blank %}
       <p class="featured-collection__title y-h2 align-center">{{ section.settings.featured_collection_title }}</p>
@@ -10,16 +10,15 @@
       {% for product in collection.products limit: 6 %}
         <div class="z-grid__cell 1/{{ section.settings.number_items_desktop }}--desk 1/{{ section.settings.number_items_mobile }} grid__cell">
           <a href="{{ product.url | within: collection }}" class="featured-collection__item">
-            <div class="align-center">
+            <div class="align-center product-card">
               <div class="reveal ">
-                <img src="{{ product.images[0] | img_url: '300x' }}"  alt="{{ product.images[0].alt }}" >
+                <img class="featured-collection__image" src="{{ product.images[0] | img_url: '300x' }}"  alt="{{ product.images[0].alt }}" >
                 <div class="hidden">
                   <img class="featured-collection__img-hidden" src="{{ product.images[1] | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
                   <div class="caption">
-                    <div class="centered relative">
-                      <p class="featured-collection__size">Choisissez votre taille :</p>
-                      <form class="featured-collection__form" method="post" action="/cart/add">
+                    <form class="featured-collection__form" method="post" action="/cart/add">
                       <input type="hidden" name="id">
+                        <p class="featured-collection__size">Choisissez votre taille :</p>
                         <div class="featured-collection__container-label">
                           {% for variant in product.variants %}
                             <label type="hidden" class="featured-collection__select-container ">
@@ -39,8 +38,7 @@
                           {% endfor %}
                         </div>
                       <input class="featured-collection__btn btn" type="submit" value="Ajoutez au panier">
-                    </form>
-                    </div>
+                  </form>
                   </div>
                 </div>
               </div>
