@@ -308,29 +308,46 @@
   }
 }
 
-// FEATURE COLLECTION
+// featured COLLECTION
 
-.feature-collection__img-hidden {
+.hidden {
+  overflow: hidden;
+}
+
+.featured-collection__size {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
+}
+
+.featured-collection__container-label {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  padding-top: 260px;
+}
+
+.featured-collection__img-hidden {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: translateY(-20%);
 }
 
-.feature-collection__sizes {
-  display:flex;
-}
-
-.container {
-  //display: flex;
+.featured-collection__select-container {
   position: relative;
-  padding-left: 35px;
+  padding-left: 10px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 14px;
-  //user-select: none;
 }
 
-.container input {
+.featured-collection__input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -338,30 +355,53 @@
   width: 0;
 }
 
+
 .checkmark {
-  position: absolute;
-  border-radius: 50px;
-  top: 0;
-  left: 0;
-  height: 15px;
-  width: 15px;
+  top: 50%;
+  left: 50%;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
+  border: 1px solid black;
 }
 
-.container:hover input ~ .checkmark {
+.featured-collection__disabled-checkmark{
+  height: 1px;
+  width: 26px;
+  background-color: #000033;
+  position: absolute;
+  top: 49%;
+  left: 23%;
+  transform: translate(0, -50%);
+  transform: rotate(45deg);
+}
+
+.featured-collection__checkmark--2:hover,
+.featured-collection__disabled-input:hover {
+  cursor: auto;
+}
+
+.featured-collection__disabled-input {
+  display: none;
+}
+
+.featured-collection__select-container:hover input ~ .featured-collection__checkmark--1 {
   background-color: #ccc;
 }
 
-.container input:checked ~ .checkmark {
-  background-color: #ffcd1a;
+.featured-collection__select-container input:checked ~ .checkmark {
+  background-color: black;
+  color: white;
 }
 
 
-.container input:checked ~ .checkmark:after {
-  display: block;
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
 }
 
-.container .checkmark:after {
+.featured-collection__select-container .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -371,4 +411,10 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.featured-collection__checkmark--variant-title {
+  position: absolute;
+  left: 40%;
+  top: 5%;
 }
