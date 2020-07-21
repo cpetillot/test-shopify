@@ -1,4 +1,4 @@
-# On-boarding Shopify :zap:
+# :zap: On-boarding Shopify :zap:
 
 - Création d'une boutique
 - Ajout de feature
