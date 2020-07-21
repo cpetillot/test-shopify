@@ -1,19 +1,16 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="mega-section">
   {% for block in section.blocks %}
 
-   {% if block.type == "image-text" %}
-     {% include "image-text" %}
-   {% elsif block.type == "border-content" %}
-     {% include 'border-content' %}
-   {% elsif block.type == "banner-content" %}
-     {% include 'banner-content' %}
-   {% elsif block.type == "product-list" %}
-     {% include 'product-list' %}
-   {% elsif block.type == "artist" %}
-     {% include 'artist' %}
-   {% elsif block.type == "timeline" %}
-     {% include 'timeline' %}
-   {% endif %}
+  {% assign handle = 'cake' %} {% case handle %}
+  {% when 'reassurance' %}
+    {% include 'reassurance-mega-section' %}
+  {% when 'alternate' %}
+    {% include 'alternate-mega-section' %}
+  {% when 'banner' %}
+    {% include 'banner-mega-section' %}
+  {% when 'featured-collection-mega-section' %}
+    {% include 'featured-collection-mega-section' %}
+  {% endcase %}
 
  {% endfor %}
 </section>
@@ -28,39 +25,65 @@
   "blocks": [
     {
       "type": "image-text",
-      "name": "Image with text",
+      "name": "Reassurance",
       "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "label": "Add custom text below",
+          "default": "<p>Add your text here</p>"
+        },
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "id": "reassurance-image1",
+          "label": "Image1"
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Texte"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "Url"
+          "id": "reassurance-title1",
+          "label": "Title1"
         },
         {
           "type": "text",
-          "id": "cta",
-          "label": "Call to action"
-        }
-      ]
-    },
-    {
-      "type": "border-content",
-      "name": "Border content",
-      "settings": [
+          "id": "reassurance-subtitle1",
+          "label": "Subtitle1"
+        },
+        {
+          "type": "image_picker",
+          "id": "reassurance-image2",
+          "label": "Image2"
+        },
+        {
+          "type": "text",
+          "id": "reassurance-title2",
+          "label": "Title2"
+        },
+        {
+          "type": "text",
+          "id": "reassurance-subtitle2",
+          "label": "Subtitle2"
+        },
+        {
+          "type": "image_picker",
+          "id": "reassurance-image3",
+          "label": "Image3"
+        },
+        {
+          "type": "text",
+          "id": "reassurance-title3",
+          "label": "Title3"
+        },
+        {
+          "type": "text",
+          "id": "reassurance-subtitle3",
+          "label": "Subtitle3"
+        },
         {
           "type": "color",
           "id": "bg",
@@ -68,13 +91,26 @@
         },
         {
           "type": "color",
-          "id": "border",
-          "label": "Color border"
-        },
-        {
-          "type": "color",
           "id": "color",
           "label": "Color text"
+        }
+      ]
+    },
+    {
+      "type": "left-right",
+      "name": "Alternate",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Add custom text below",
+          "default": "<p>Add your text here</p>"
         },
         {
           "type": "text",
@@ -98,33 +134,45 @@
         },
         {
           "type": "image_picker",
-          "id": "image1",
-          "label": "Image1"
+          "id": "image",
+          "label": "Image"
         },
         {
-          "type": "url",
-          "id": "url1",
-          "label": "Url image 1"
+          "id": "video_url",
+          "type": "video_url",
+          "label": "If you want a photo, let this to be empty",
+          "accept": ["youtube", "vimeo"],
+          "placeholder": "Text"
         },
         {
-          "type": "image_picker",
-          "id": "image2",
-          "label": "Image2"
+          "id": "invert_section",
+          "type": "checkbox",
+          "label": "Invert section"
         },
         {
-          "type": "url",
-          "id": "url2",
-          "label": "Url image 2"
+          "type": "select",
+          "id": "container_size",
+          "options": [
+            { "value" : "container--small", "label": "Small container"},
+            { "value" : "container", "label": "Normal container"},
+            { "value" : "container--full", "label": "Full container"}
+          ],
+          "label": "Container size"
+        }
+        {
+          "type": "color",
+          "id": "bg",
+          "label": "Color Background"
         },
         {
-          "type": "image_picker",
-          "id": "image3",
-          "label": "Image3"
+          "type": "color",
+          "id": "border",
+          "label": "Color border"
         },
         {
-          "type": "url",
-          "id": "url3",
-          "label": "Url image 3"
+          "type": "color",
+          "id": "color",
+          "label": "Color text"
         }
       ]
     },
