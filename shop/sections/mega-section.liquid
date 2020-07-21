@@ -1,0 +1,287 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="mega-section">
+  {% for block in section.blocks %}
+
+   {% if block.type == "image-text" %}
+     {% include "image-text" %}
+   {% elsif block.type == "border-content" %}
+     {% include 'border-content' %}
+   {% elsif block.type == "banner-content" %}
+     {% include 'banner-content' %}
+   {% elsif block.type == "product-list" %}
+     {% include 'product-list' %}
+   {% elsif block.type == "artist" %}
+     {% include 'artist' %}
+   {% elsif block.type == "timeline" %}
+     {% include 'timeline' %}
+   {% endif %}
+
+ {% endfor %}
+</section>
+
+
+{% schema %}
+{
+  "name": "Mega section",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "image-text",
+      "name": "Image with text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texte"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Call to action"
+        }
+      ]
+    },
+    {
+      "type": "border-content",
+      "name": "Border content",
+      "settings": [
+        {
+          "type": "color",
+          "id": "bg",
+          "label": "Color Background"
+        },
+        {
+          "type": "color",
+          "id": "border",
+          "label": "Color border"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texte"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Call to action"
+        },
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image1"
+        },
+        {
+          "type": "url",
+          "id": "url1",
+          "label": "Url image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image2"
+        },
+        {
+          "type": "url",
+          "id": "url2",
+          "label": "Url image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image3"
+        },
+        {
+          "type": "url",
+          "id": "url3",
+          "label": "Url image 3"
+        }
+      ]
+    },
+    {
+      "type": "banner-content",
+      "name": "Banner content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "color",
+          "id": "bg",
+          "label": "Background out"
+        },
+        {
+          "type": "color",
+          "id": "bg-sec",
+          "label": "Background in"
+        },
+        {
+          "type": "color",
+          "id": "color-title",
+          "label": "Color title"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texte"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Call to action"
+        }
+      ]
+    },
+    {
+      "type": "product-list",
+      "name": "Product list",
+      "settings": [
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+          {
+            "value": "classic",
+            "label": "Classic"
+          },
+          {
+            "value": "alternate",
+            "label": "Alternate"
+          }
+          ],
+          "default": "classic"
+        },
+        {
+          "type": "product",
+          "id": "product1",
+          "label": "Product 1"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Title 1"
+        },
+        {
+          "type": "text",
+          "id": "subtitle1",
+          "label": "subTitle 1"
+        },
+        {
+          "type": "text",
+          "id": "cta1",
+          "label": "Call to action 1"
+        },
+        {
+          "type": "color",
+          "id": "color1",
+          "label": "Color 1"
+        },
+        {
+          "type": "product",
+          "id": "product2",
+          "label": "Product 2"
+        },
+        {
+          "type": "text",
+          "id": "title2",
+          "label": "Title 2"
+        },
+        {
+          "type": "text",
+          "id": "subtitle2",
+          "label": "subTitle 2"
+        },
+        {
+          "type": "text",
+          "id": "cta2",
+          "label": "Call to action 2"
+        },
+        {
+          "type": "color",
+          "id": "color2",
+          "label": "Color 2"
+        },
+        {
+          "type": "product",
+          "id": "product3",
+          "label": "Product 3"
+        },
+        {
+          "type": "text",
+          "id": "title3",
+          "label": "Title 3"
+        },
+        {
+          "type": "text",
+          "id": "subtitle3",
+          "label": "subTitle 3"
+        },
+        {
+          "type": "text",
+          "id": "cta3",
+          "label": "Call to action 3"
+        },
+        {
+          "type": "color",
+          "id": "color3",
+          "label": "Color 3"
+        }
+      ]
+    }
+  ],
+	"presets": [
+		{
+			"name": "Mega section",
+			"category": "Custom"
+		}
+	]
+}
+{% endschema %}
