@@ -6,7 +6,7 @@
       <p class="hero-header__subtitle color--black align-center">{{ section.settings.hero_subtitle }}</p>
       {% endunless %}
       {% unless section.settings.hero_title == blank %}
-      <h1 class="hero-header__title color--black underline-strong y-h1 align-center">{{ section.settings.hero_title }}</h1>
+      <{{ section.settings.hero_title_hn }} class="hero-header__title color--black underline-strong y-h1 align-center">{{ section.settings.hero_title }}</{{ section.settings.hero_title_hn }}>
       {% endunless %}
     </div>
   </div>
@@ -17,7 +17,7 @@
       <p class="hero-header__subtitle color--white align-center">{{ section.settings.hero_subtitle }}</p>
       {% endunless %}
       {% unless section.settings.hero_title == blank %}
-      <h1 class="hero-header__title p-color--white underline-strong y-h1 align-center">{{ section.settings.hero_title }}</h1>
+      <{{ section.settings.hero_title_hn }} class="hero-header__title p-color--white underline-strong y-h1 align-center">{{ section.settings.hero_title }}</{{ section.settings.hero_title_hn }}>
       {% endunless %}
     </div>
   </div>
@@ -51,6 +51,38 @@
         "label": "heading",
         "default": "<p>Ajoutez votre titre</p>"
       },
+      {
+      "type": "select",
+      "id": "hero_title_hn",
+      "label": "heading balisage",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ]
+    },
       {
         "type": "checkbox",
         "id": "background_color",

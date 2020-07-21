@@ -12,7 +12,7 @@
           <a href="{{ product.url | within: collection }}" class="featured-collection__item">
             <div class="align-center">
               <div class="reveal ">
-                <img src="{{ product.images[0] | img_url: '300x' }}"  alt="" >
+                <img src="{{ product.images[0] | img_url: '300x' }}"  alt="{{ product.images[0].alt }}" >
                 <div class="hidden">
                   <img class="featured-collection__img-hidden" src="{{ product.images[1] | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
                   <div class="caption">
@@ -64,6 +64,38 @@
         "label": "Titre",
         "default": "Ecrivez votre titre"
       },
+      {
+      "type": "select",
+      "id": "hero_title_hn",
+      "label": "heading balisage",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ]
+    },
       {
         "type": "collection",
         "id": "collection",
