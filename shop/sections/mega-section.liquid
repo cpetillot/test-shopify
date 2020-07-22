@@ -1,20 +1,19 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="mega-section">
   <div class="mega-section">
-    {% for block in section.blocks %}
+    {% for block in section.blocks%}
       {% case block.type %}
-      {% when 'reassurance' %}
-        {% include 'reassurance-mega-section' %}
-      {% when 'Alternate' %}
-        {% include 'alternate-mega-section' %}
-      {% when 'Banner' %}
-        {% include 'banner-mega-section' %}
-      {% when 'Featured-collection' %}
-        {% include 'featured-collection-mega-section' %}
+        {% when 'reassurance' %}
+          {% include 'reassurance-mega-section' %}
+        {% when 'alternate' %}
+          {% include 'alternate-mega-section' %}
+        {% when 'banner-content' %}
+          {% include 'banner-mega-section' %}
+        {% when 'featured-collection' %}
+          {% include 'featured-collection-mega-section' %}
       {% endcase %}
     {% endfor %}
   </div>
 </section>
-
 
 {% schema %}
 {
@@ -24,8 +23,8 @@
   ],
   "blocks": [
     {
-      "type": "image-text",
-      "name": "reassurance",
+      "type": "reassurance",
+      "name": "Reassurance",
       "settings": [
         {
           "id": "reassurance-title",
@@ -85,6 +84,17 @@
           "label": "Subtitle3"
         },
         {
+          "type": "select",
+          "id": "alternate-margin-bottom-size",
+          "options": [
+            { "value" : "margin--0", "label": "Margin-bottom 0px"},
+            { "value" : "margin--25", "label": "Margin-bottom 25px"},
+            { "value" : "margin--50", "label": "Margin-bottom 50px"},
+            { "value" : "margin--75", "label": "Margin-bottom 75px"}
+          ],
+          "label": "Container size"
+        },
+        {
           "type": "color",
           "id": "bg",
           "label": "Color Background"
@@ -97,7 +107,7 @@
       ]
     },
     {
-      "type": "left-right",
+      "type": "alternate",
       "name": "Alternate",
       "settings": [
         {
@@ -136,12 +146,23 @@
           "id": "alternate-video_url",
           "label": "If you want a photo, let this to be empty",
           "accept": ["youtube", "vimeo"],
-          "placeholder": "Text"
+          "placeholder": "Video URL"
         },
         {
           "type": "checkbox",
           "id": "alternate-invert_section",
           "label": "Invert section"
+        },
+        {
+          "type": "select",
+          "id": "alternate-margin-bottom-size",
+          "options": [
+            { "value" : "margin--0", "label": "Margin-bottom 0px"},
+            { "value" : "margin--25", "label": "Margin-bottom 25px"},
+            { "value" : "margin--50", "label": "Margin-bottom 50px"},
+            { "value" : "margin--75", "label": "Margin-bottom 75px"}
+          ],
+          "label": "Container size"
         },
         {
           "type": "select",
@@ -245,6 +266,17 @@
         "label": "Text 3",
 				"default" : "<p>Ajoutez un texte</p>"
       },
+      {
+        "type": "select",
+        "id": "alternate-margin-bottom-size",
+        "options": [
+          { "value" : "margin--0", "label": "Margin-bottom 0px"},
+          { "value" : "margin--25", "label": "Margin-bottom 25px"},
+          { "value" : "margin--50", "label": "Margin-bottom 50px"},
+          { "value" : "margin--75", "label": "Margin-bottom 75px"}
+        ],
+        "label": "Container size"
+      },
         {
         "type": "select",
         "id": "banner-title_hn",
@@ -327,24 +359,25 @@
         "label": "collection"
       },
       {
-        "type": "color",
-        "id": "bg",
-        "label": "Background out"
+        "type": "select",
+        "id": "alternate-margin-bottom-size",
+        "options": [
+          { "value" : "margin--0", "label": "Margin-bottom 0px"},
+          { "value" : "margin--25", "label": "Margin-bottom 25px"},
+          { "value" : "margin--50", "label": "Margin-bottom 50px"},
+          { "value" : "margin--75", "label": "Margin-bottom 75px"}
+        ],
+        "label": "Container size"
       },
       {
         "type": "color",
-        "id": "bg-sec",
-        "label": "Background in"
+        "id": "bg",
+        "label": "Background"
       },
       {
         "type": "color",
         "id": "color-title",
         "label": "Color title"
-      },
-      {
-        "type": "color",
-        "id": "color",
-        "label": "Color text"
       }
       ]
     }

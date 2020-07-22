@@ -1,39 +1,34 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="alternate__section">
-  <div class="alternate  {{ section.settings.container_size}}">
-    {% if section.settings.title != blank %}
-    <h2 class="alternate__title z-h2 align-center"> {{ section.settings.title }} </h2>
-    {% endif %}
-    {% if section.settings.text != blank %}
-    <div class="alternate__text align-center">
-      {{ section.settings.text }}
-    </div>
-    {% endif %}
+<section id="section-{{ section.id }}" class="section {{ block.settings.alternate-margin-bottom-size}}" data-section-id="{{ section.id }}" data-section-type="alternate__section">
+  <div class="alternate  {{ block.settings.container_size}}">
+    {% unless block.settings.title == blank %}
+    <h2 class="alternate__title z-h2 align-center"> {{ block.settings.alternate-title-section }} </h2>
+    {% endunless %}
 
     <div class="z-grid z-grid--center" >
-      {% if section.settings.invert_section == false %}
+      {% if block.settings.alternate-invert_section == false %}
       <div class="1/2 z-grid__cell ">
-        {% if section.settings.video_url == blank %}
-        <div class="align-left alternate__ImgContainer">
-          <img class="alternate__image" src="{{ section.settings.image | img_url : '350x' }}">
+        {% if block.settings.alternate-video_url == blank %}
+        <div class="alternate__ImgContainer">
+          <img class="alternate__image" src="{{ block.settings.alternate-image | img_url : '450x' }}" alt="{{block.settings.alternate-image.alt}}">
         </div>
         {% else %}
-        <iframe src="//www.youtube.com/embed/{{ section.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="350" height="350" frameborder="0" allowfullscreen></iframe>
+        <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="350" height="350" frameborder="0" allowfullscreen></iframe>
         {% endif %}
       </div>
       {% endif %}
 
-        <div class="1/3 z-grid__cell">
-          <h3 class="align-center z-h3">{{ section.settings.content_title }}</h3>
-          <div class="align-center alternate__richText">{{ section.settings.richtext}}</div>
-          <div class="align-center alternate__cta"><a href="#">{{ section.settings.cta}}</a></div>
-          <div ><a href="{{ section.settings.url }}">{{ section.settings.url}}</a></div>
-        </div>
+      <div class="1/3 z-grid__cell alternate__text-container">
+        <h3 class="align-center z-h3">{{ block.settings.alternate-title }}</h3>
+        <div class="align-center alternate__richText">{{ block.settings.alternate-text}}</div>
+        <div class="align-center alternate__cta"><a href="#">{{ block.settings.alternate-cta}}</a></div>
+        <div ><a href="{{ block.settings.alternate-url }}">{{ block.settings.alternate-url}}</a></div>
+      </div>
 
-        {% if section.settings.invert_section == true %}
-        <div class="1/2 z-grid__cell ">
-          <div class="align-right">
-            <img class="alternate__image" src="{{ section.settings.image | img_url : '350x' }}">
-          </div>
+      {% if block.settings.invert_block == true %}
+      <div class="1/2 z-grid__cell ">
+        <div class="align-right">
+          <img class="alternate__image" src="{{ alternate-image | img_url : '350x' }}" alt="{{block.settings.alternate-image.alt}}">
+        </div>
       </div>
       {% endif %}
 

@@ -1,37 +1,54 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="reassurance">
+
+
+<section id="section-{{ section.id }}" class="section {{ block.settings.alternate-margin-bottom-size}}" style="background-color:{{block.settings.bg}}" data-section-id="{{ section.id }}" data-section-type="reassurance">
   <div class="reassurance align-center">
     <div class="container">
-      <h2 class="reassurance__title z-h2 align-center"> {{ block.settings.reassurance-title }} </h2>
-      <div class="reassurance__text align-center">
+      <h2 class="reassurance__title z-h2 align-center" style="color:{{block.settings.color}}"> {{ block.settings.reassurance-title }} </h2>
+      <div class="reassurance__text align-center" style="color:{{block.settings.color}}">
         {{ block.settings.reassurance-text }}
       </div>
       <div class="z-grid z-grid--center">
 
-        {% unless block.type == 'image' %}{% continue %}{% endunless %}
           <div class="z-grid__cell 1/3 1 grid__cell">
-            <div class="align-left">
-              <img class="reassurance__image" src="{{ block.settings.image | img_url : '250x' }}" alt="{{ block.settings.image.alt | escape }}">
+            {% unless block.settings.reassurance-image1 == blank %}
+            <div class="align-center">
+              <img class="reassurance__image" src="{{ block.settings.reassurance-image1 | img_url : '250x' }}" alt="{{ block.settings.reassurance-image1.alt | escape }}">
             </div>
-            <h3 class="align-left z-h3">{{ block.settings.reassurance-title1}}</h3>
-            <div class="align-left">{{ block.settings.reassurance-subtitle1}}</div>
+            {% endunless %}
+            {% unless block.settings.reassurance-title1 == blank %}
+            <h3 class="align-center z-h3" style="color:{{block.settings.color}}">{{ block.settings.reassurance-title1}}</h3>
+            {% endunless %}
+            {% unless block.settings.reassurance-subtitle1 == blank %}
+            <div class="align-center" style="color:{{block.settings.color}}">{{ block.settings.reassurance-subtitle1}}</div>
+            {% endunless %}
           </div>
 
-          {% unless block.type == 'image' %}{% continue %}{% endunless %}
           <div class="z-grid__cell 1/3 1 grid__cell">
-            <div class="align-left">
-              <img class="reassurance__image" src="{{ block.settings.image | img_url : '250x' }}" alt="{{ block.settings.image.alt | escape }}">
+            {% unless block.settings.reassurance-image2 == blank %}
+            <div class="align-center">
+              <img class="reassurance__image" src="{{ block.settings.reassurance-image2 | img_url : '250x' }}" alt="{{ block.settings.reassurance-image2.alt | escape }}">
             </div>
-            <h3 class="align-left z-h3">{{ block.settings.reassurance-title2}}</h3>
-            <div class="align-left">{{ block.settings.reassurance-subtitle2}}</div>
+            {% endunless %}
+            {% unless block.settings.reassurance-title2 == blank %}
+            <h3 class="align-center z-h3" style="color:{{block.settings.color}}">{{ block.settings.reassurance-title2}}</h3>
+            {% endunless %}
+            {% unless block.settings.reassurance-subtitle2 == blank %}
+            <div class="align-center" style="color:{{block.settings.color}}">{{ block.settings.reassurance-subtitle2}}</div>
+            {% endunless %}
           </div>
 
-          {% unless block.type == 'image' %}{% continue %}{% endunless %}
           <div class="z-grid__cell 1/3 1 grid__cell">
-            <div class="align-left">
-              <img class="reassurance__image" src="{{ block.settings.image | img_url : '250x' }}" alt="{{ block.settings.image.alt | escape }}">
+            {% unless block.settings.reassurance-image3 == blank %}
+            <div class="align-center">
+              <img class="reassurance__image" src="{{ block.settings.reassurance-image3 | img_url : '250x' }}" alt="{{ block.settings.reassurance-image3.alt | escape }}">
             </div>
-            <h3 class="align-left z-h3">{{ block.settings.reassurance-title3}}</h3>
-            <div class="align-left">{{ block.settings.reassurance-subtitle3}}</div>
+            {% endunless %}
+            {% unless block.settings.reassurance-title3 == blank %}
+            <h3 class="align-center z-h3" style="color:{{block.settings.color}}">{{ block.settings.reassurance-title3}}</h3>
+            {% endunless %}
+            {% unless block.settings.reassurance-subtitle3 == blank %}
+            <div class="align-center" style="color:{{block.settings.color}}">{{ block.settings.reassurance-subtitle3}}</div>
+            {% endunless %}
           </div>
 
       </div>
