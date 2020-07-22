@@ -1,30 +1,48 @@
-<section id="section-{{ section.id }}" class="section relative " data-section-id="{{ section.id }}" data-section-type="slider-mega-section">
+<section id="section-{{ section.id }}" class="section relative {{ block.settings.alternate-margin-bottom-size}}" data-section-id="{{ section.id }}" data-section-type="slider-mega-section">
   <div data-slider class="slider  ">
-    {% for block in block.blocks %}
-      <div class="slider__slides relative align-center">
-        <img class="slider__image {{ block.settings.banner-slider_height}}" src="{{ block.settings.banner-image1 | img_url : '1050x' }}" alt="{{block.settings.banner-image1.alt}}">
-        <div class="slider__encart">
-          <div class="slider__subtitle align-center">{{ block.settings.banner-subtitle1 }}</div>
-          <div class="slider__richtext y-p align-center">{{ block.settings.banner-richtext1 }}</div>
-        </div>
+
+    <div class="slider__slides relative align-center">
+      {% unless block.settings.banner-image1 == blank %}
+      <img class="slider__image {{ block.settings.banner-slider_height}}" src="{{ block.settings.banner-image1 | img_url : '1050x' }}" alt="{{block.settings.banner-image1.alt}}">
+      {% endunless %}
+      <div class="banner-slider__encart">
+        {% unless block.settings.banner-subtitle1 == blank %}
+        <{{ block.settings.hero_title_hn }} class="slider__subtitle align-center">{{ block.settings.banner-subtitle1 }}</{{ block.settings.hero_title_hn }}>
+        {% endunless %}
+        {% unless block.settings.banner-richtext1 == blank %}
+        <{{ block.settings.hero_title_hn }} class="slider__richtext y-p align-center">{{ block.settings.banner-richtext1 }}</{{ block.settings.hero_title_hn }}>
+        {% endunless %}
       </div>
+    </div>
 
       <div class="slider__slides relative align-center">
+        {% unless block.settings.banner-image2 == blank %}
         <img class="slider__image {{ block.settings.banner-slider_height}}" src="{{ block.settings.banner-image2 | img_url : '1050x' }}" alt="{{block.settings.banner-image2.alt}}">
-        <div class="slider__encart">
+        {% endunless %}
+        <div class="banner-slider__encart">
+          {% unless block.settings.banner-subtitle2 == blank %}
           <div class="slider__subtitle align-center">{{ block.settings.banner-subtitle2 }}</div>
+          {% endunless %}
+          {% unless block.settings.banner-richtext2 == blank %}
           <div class="slider__richtext y-p align-center">{{ block.settings.banner-richtext2 }}</div>
+          {% endunless %}
         </div>
       </div>
 
       <div class="slider__slides relative align-center">
+        {% unless block.settings.banner-image3 == blank %}
         <img class="slider__image {{ block.settings.banner-slider_height}}" src="{{ block.settings.banner-image3 | img_url : '1050x' }}" alt="{{block.settings.banner-image3.alt}}">
-        <div class="slider__encart">
+        {% endunless %}
+        <div class="banner-slider__encart">
+          {% unless block.settings.banner-subtitle3 == blank %}
           <div class="slider__subtitle align-center">{{ block.settings.banner-subtitle3 }}</div>
+          {% endunless %}
+          {% unless block.settings.banner-richtext3 == blank %}
           <div class="slider__richtext y-p align-center">{{ block.settings.banner-richtext3 }}</div>
+          {% endunless %}
         </div>
       </div>
-    {% endfor %}
+
   </div>
   <div >
     <img class="slider__arrow slider__arrow--prev slick-prev" data-arrow-prev  src="{{ block.settings.banner-chevron_previous | img_url : '250x' }}" alt="{{block.settings.chevron_previous.alt}}">

@@ -1,0 +1,53 @@
+<section id="section-{{ section.id }}" class="section {{ block.settings.alternate-margin-bottom-size}}" data-section-id="{{ section.id }}" data-section-type="featured-collection">
+  <div class="featured-collection page-width">
+    <div class="align-center">
+      {% unless block.settings.featured-collection_title == blank %}
+      <p class="featured-collection__title y-h2 align-center">{{ block.settings.featured-collection_title }}</p>
+      {% endunless %}
+    </div>
+    <div class="z-grid z-grid--center">
+      {%- assign collection = collections[block.settings.featured-collection] -%}
+      {% for product in collection.products limit: 6 %}
+        <div class="z-grid__cell 1/3--desk  grid__cell">
+          <a href="{{ product.url | within: collection }}" class="featured-collection__item">
+            <div class="align-center product-card">
+              <div class="reveal ">
+                <img class="featured-collection__image" src="{{ product.images[0] | img_url: '300x' }}"  alt="{{ product.images[0].alt }}" >
+                <div class="hidden">
+                  <img class="featured-collection__img-hidden" src="{{ product.images[1] | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
+                  <div class="caption">
+                    <form class="featured-collection__form" method="post" action="/cart/add">
+                      <input type="hidden" name="id">
+                        <p class="featured-collection__size">Choisissez votre taille :</p>
+                        <div class="featured-collection__container-label">
+                          {% for variant in product.variants %}
+                            <label type="hidden" class="featured-collection__select-container ">
+                              {% if variant.available == true %}
+                                <input class="featured-collection__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}"/>
+                                <div class="featured-collection__checkmark--1 checkmark">
+                                  <div class="featured-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
+                                </div>
+                              {% else %}
+                                <input class="featured-collection__disabled-input" type="radio" name="group2" disabled="disabled" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
+                                <div class="featured-collection__checkmark--2 checkmark">
+                                  <div class="featured-collection__checkmark--variant-title">{{ variant.title | escape}}</div>
+                                  <div class="featured-collection__disabled-checkmark"></div>
+                                </div>
+                              {% endif %}
+                            </label>
+                          {% endfor %}
+                        </div>
+                      <input class="featured-collection__btn btn" type="submit" value="Ajoutez au panier">
+                  </form>
+                  </div>
+                </div>
+              </div>
+              <p>{{ product.title | escape }}</p>
+              <span>{{ product.price | money }}</span>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
