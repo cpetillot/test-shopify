@@ -1,0 +1,35 @@
+<section id="section-{{ section.id }}" class="section relative " data-section-id="{{ section.id }}" data-section-type="slider-mega-section">
+  <div data-slider class="slider  ">
+    {% for block in block.blocks %}
+      <div class="slider__slides relative align-center">
+        <img class="slider__image {{ block.settings.banner-slider_height}}" src="{{ block.settings.banner-image1 | img_url : '1050x' }}" alt="{{block.settings.banner-image1.alt}}">
+        <div class="slider__encart">
+          <div class="slider__subtitle align-center">{{ block.settings.banner-subtitle1 }}</div>
+          <div class="slider__richtext y-p align-center">{{ block.settings.banner-richtext1 }}</div>
+        </div>
+      </div>
+
+      <div class="slider__slides relative align-center">
+        <img class="slider__image {{ block.settings.banner-slider_height}}" src="{{ block.settings.banner-image2 | img_url : '1050x' }}" alt="{{block.settings.banner-image2.alt}}">
+        <div class="slider__encart">
+          <div class="slider__subtitle align-center">{{ block.settings.banner-subtitle2 }}</div>
+          <div class="slider__richtext y-p align-center">{{ block.settings.banner-richtext2 }}</div>
+        </div>
+      </div>
+
+      <div class="slider__slides relative align-center">
+        <img class="slider__image {{ block.settings.banner-slider_height}}" src="{{ block.settings.banner-image3 | img_url : '1050x' }}" alt="{{block.settings.banner-image3.alt}}">
+        <div class="slider__encart">
+          <div class="slider__subtitle align-center">{{ block.settings.banner-subtitle3 }}</div>
+          <div class="slider__richtext y-p align-center">{{ block.settings.banner-richtext3 }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div >
+    <img class="slider__arrow slider__arrow--prev slick-prev" data-arrow-prev  src="{{ block.settings.banner-chevron_previous | img_url : '250x' }}" alt="{{block.settings.chevron_previous.alt}}">
+  </div>
+  <div >
+    <img class="slider__arrow slider__arrow--next" data-arrow-next  src="{{ block.settings.banner-chevron_next | img_url : '250x' }}" alt="{{block.settings.chevron_next.alt}}">
+  </div>
+</section>
