@@ -1,18 +1,18 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="mega-section">
-  {% for block in section.blocks %}
-
-  {% assign handle = 'cake' %} {% case handle %}
-  {% when 'reassurance' %}
-    {% include 'reassurance-mega-section' %}
-  {% when 'alternate' %}
-    {% include 'alternate-mega-section' %}
-  {% when 'banner' %}
-    {% include 'banner-mega-section' %}
-  {% when 'featured-collection-mega-section' %}
-    {% include 'featured-collection-mega-section' %}
-  {% endcase %}
-
- {% endfor %}
+  <div class="mega-section">
+    {% for block in section.blocks %}
+      {% case block.type %}
+      {% when 'reassurance' %}
+        {% include 'reassurance-mega-section' %}
+      {% when 'Alternate' %}
+        {% include 'alternate-mega-section' %}
+      {% when 'Banner' %}
+        {% include 'banner-mega-section' %}
+      {% when 'Featured-collection' %}
+        {% include 'featured-collection-mega-section' %}
+      {% endcase %}
+    {% endfor %}
+  </div>
 </section>
 
 
@@ -25,16 +25,16 @@
   "blocks": [
     {
       "type": "image-text",
-      "name": "Reassurance",
+      "name": "reassurance",
       "settings": [
         {
-          "id": "title",
+          "id": "reassurance-title",
           "type": "text",
           "label": "Heading",
           "default": "Title"
         },
         {
-          "id": "text",
+          "id": "reassurance-text",
           "type": "richtext",
           "label": "Add custom text below",
           "default": "<p>Add your text here</p>"
@@ -102,63 +102,57 @@
       "settings": [
         {
           "type": "text",
-          "id": "title",
+          "id": "alternate-title-section",
           "label": "Heading",
           "default": "Title"
         },
         {
-          "type": "richtext",
-          "id": "text",
-          "label": "Add custom text below",
-          "default": "<p>Add your text here</p>"
-        },
-        {
           "type": "text",
-          "id": "title",
+          "id": "alternate-title",
           "label": "title"
         },
         {
           "type": "richtext",
-          "id": "text",
+          "id": "alternate-text",
           "label": "Texte"
         },
         {
           "type": "url",
-          "id": "url",
-          "label": "Url"
+          "id": "alternate-url",
+          "label": "Url button"
         },
         {
           "type": "text",
-          "id": "cta",
+          "id": "alternate-cta",
           "label": "Call to action"
         },
         {
           "type": "image_picker",
-          "id": "image",
+          "id": "alternate-image",
           "label": "Image"
         },
         {
-          "id": "video_url",
           "type": "video_url",
+          "id": "alternate-video_url",
           "label": "If you want a photo, let this to be empty",
           "accept": ["youtube", "vimeo"],
           "placeholder": "Text"
         },
         {
-          "id": "invert_section",
           "type": "checkbox",
+          "id": "alternate-invert_section",
           "label": "Invert section"
         },
         {
           "type": "select",
-          "id": "container_size",
+          "id": "alternate-container_size",
           "options": [
             { "value" : "container--small", "label": "Small container"},
             { "value" : "container", "label": "Normal container"},
             { "value" : "container--full", "label": "Full container"}
           ],
           "label": "Container size"
-        }
+        },
         {
           "type": "color",
           "id": "bg",
@@ -180,148 +174,178 @@
       "type": "banner-content",
       "name": "Banner content",
       "settings": [
+      {
+        "type": "select",
+        "id": "banner-slider_height",
+        "label": "Choisir la hauteur du slider",
+        "options": [
+          { "value" : "height--small", "label": "Petit"},
+          { "value" : "height--normal", "label": "Normal"},
+          { "value" : "height--full", "label": "Grand"}
+        ]
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-chevron_previous",
+        "label": "Chevron slider precedent"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-chevron_next",
+        "label": "Chevron slider suivant"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-image1",
+        "label": "Images background 1"
+      },
+			{
+        "type": "richtext",
+        "id": "banner-subtitle1",
+        "label": "Sous-titre 1",
+				"default" : "<P>Ajoutez un sous-titre</p>"
+      },
+			{
+        "type": "richtext",
+        "id": "banner-richtext1",
+        "label": "Text 1",
+				"default" : "<p>Ajoutez un texte</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-image2",
+        "label": "Images background 2"
+      },
+			{
+        "type": "richtext",
+        "id": "banner-subtitle2",
+        "label": "Sous-titre 2",
+				"default" : "<P>Ajoutez un sous-titre</p>"
+      },
+			{
+        "type": "richtext",
+        "id": "banner-richtext2",
+        "label": "Text 2",
+				"default" : "<p>Ajoutez un texte</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-image3",
+        "label": "Images background 3"
+      },
+			{
+        "type": "richtext",
+        "id": "banner-subtitle3",
+        "label": "Sous-titre 3",
+				"default" : "<P>Ajoutez un sous-titre</p>"
+      },
+			{
+        "type": "richtext",
+        "id": "banner-richtext3",
+        "label": "Text 3",
+				"default" : "<p>Ajoutez un texte</p>"
+      },
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+        "type": "select",
+        "id": "banner-title_hn",
+        "label": "heading balisage",
+        "default": "h2",
+        "options": [
+          {
+            "value": "h1",
+            "label": "h1"
+          },
+          {
+            "value": "h2",
+            "label": "h2"
+          },
+          {
+            "value": "h3",
+            "label": "h3"
+          },
+          {
+            "value": "h4",
+            "label": "h4"
+          },
+          {
+            "value": "h5",
+            "label": "h5"
+          },
+          {
+            "value": "h6",
+            "label": "h6"
+          }
+        ]
+      }
+      ]
+    },
+    {
+      "type": "featured-collection",
+      "name": "Featured Collection",
+      "settings": [
+      {
+        "type": "text",
+        "id": "featured-collection_title",
+        "label": "Titre",
+        "default": "Ecrivez votre titre"
+      },
+      {
+      "type": "select",
+      "id": "featured-title_hn",
+      "label": "heading balisage",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
         },
         {
-          "type": "color",
-          "id": "bg",
-          "label": "Background out"
+          "value": "h2",
+          "label": "h2"
         },
         {
-          "type": "color",
-          "id": "bg-sec",
-          "label": "Background in"
+          "value": "h3",
+          "label": "h3"
         },
         {
-          "type": "color",
-          "id": "color-title",
-          "label": "Color title"
+          "value": "h4",
+          "label": "h4"
         },
         {
-          "type": "color",
-          "id": "color",
-          "label": "Color text"
+          "value": "h5",
+          "label": "h5"
         },
         {
-          "type": "text",
-          "id": "title",
-          "label": "title"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Texte"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "Url"
-        },
-        {
-          "type": "text",
-          "id": "cta",
-          "label": "Call to action"
+          "value": "h6",
+          "label": "h6"
         }
       ]
     },
     {
-      "type": "product-list",
-      "name": "Product list",
-      "settings": [
-        {
-          "type": "select",
-          "id": "style",
-          "label": "Style",
-          "options": [
-          {
-            "value": "classic",
-            "label": "Classic"
-          },
-          {
-            "value": "alternate",
-            "label": "Alternate"
-          }
-          ],
-          "default": "classic"
-        },
-        {
-          "type": "product",
-          "id": "product1",
-          "label": "Product 1"
-        },
-        {
-          "type": "text",
-          "id": "title1",
-          "label": "Title 1"
-        },
-        {
-          "type": "text",
-          "id": "subtitle1",
-          "label": "subTitle 1"
-        },
-        {
-          "type": "text",
-          "id": "cta1",
-          "label": "Call to action 1"
-        },
-        {
-          "type": "color",
-          "id": "color1",
-          "label": "Color 1"
-        },
-        {
-          "type": "product",
-          "id": "product2",
-          "label": "Product 2"
-        },
-        {
-          "type": "text",
-          "id": "title2",
-          "label": "Title 2"
-        },
-        {
-          "type": "text",
-          "id": "subtitle2",
-          "label": "subTitle 2"
-        },
-        {
-          "type": "text",
-          "id": "cta2",
-          "label": "Call to action 2"
-        },
-        {
-          "type": "color",
-          "id": "color2",
-          "label": "Color 2"
-        },
-        {
-          "type": "product",
-          "id": "product3",
-          "label": "Product 3"
-        },
-        {
-          "type": "text",
-          "id": "title3",
-          "label": "Title 3"
-        },
-        {
-          "type": "text",
-          "id": "subtitle3",
-          "label": "subTitle 3"
-        },
-        {
-          "type": "text",
-          "id": "cta3",
-          "label": "Call to action 3"
-        },
-        {
-          "type": "color",
-          "id": "color3",
-          "label": "Color 3"
-        }
+        "type": "collection",
+        "id": "featured-collection",
+        "label": "collection"
+      },
+      {
+        "type": "color",
+        "id": "bg",
+        "label": "Background out"
+      },
+      {
+        "type": "color",
+        "id": "bg-sec",
+        "label": "Background in"
+      },
+      {
+        "type": "color",
+        "id": "color-title",
+        "label": "Color title"
+      },
+      {
+        "type": "color",
+        "id": "color",
+        "label": "Color text"
+      }
       ]
     }
   ],
