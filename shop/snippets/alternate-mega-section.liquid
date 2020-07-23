@@ -4,15 +4,15 @@
     <h2 class="alternate__title z-h2 align-center"> {{ block.settings.alternate-title-section }} </h2>
     {% endunless %}
 
-    <div class="z-grid z-grid--center" >
+    <div class="z-grid z-grid--center alternate__container" >
       {% if block.settings.alternate-invert_section == false %}
-      <div class="1/2 z-grid__cell ">
+      <div class="1/2--lap-and-up z-grid__cell ">
         {% if block.settings.alternate-video_url == blank %}
         <div class="alternate__ImgContainer">
-          <img class="alternate__image" src="{{ block.settings.alternate-image | img_url : '450x' }}" alt="{{block.settings.alternate-image.alt}}">
+          <img class="alternate__image" src="{{ block.settings.alternate-image | img_url : '500x' }}" alt="{{block.settings.alternate-image.alt}}">
         </div>
         {% else %}
-        <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="350" height="350" frameborder="0" allowfullscreen></iframe>
+          <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="350" height="350" frameborder="0" allowfullscreen></iframe>
         {% endif %}
       </div>
       {% endif %}
@@ -24,11 +24,15 @@
         <div ><a href="{{ block.settings.alternate-url }}">{{ block.settings.alternate-url}}</a></div>
       </div>
 
-      {% if block.settings.invert_block == true %}
-      <div class="1/2 z-grid__cell ">
-        <div class="align-right">
-          <img class="alternate__image" src="{{ alternate-image | img_url : '350x' }}" alt="{{block.settings.alternate-image.alt}}">
+      {% if block.settings.alternate-invert_section == true %}
+      <div class="1/2--lap-and-up z-grid__cell ">
+        {% if block.settings.alternate-video_url == blank %}
+        <div class="align-right alternate__ImgContainer">
+          <img class="alternate__image" src="{{ block.settings.alternate-image | img_url : '500x' }}" alt="{{block.settings.alternate-image.alt}}">
         </div>
+        {% else %}
+          <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="350" height="350" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
       </div>
       {% endif %}
 

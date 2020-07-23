@@ -16,13 +16,21 @@
 }
 
 
-
-
 //REASSURANCE
 .reassurance {
   padding: 2% 0%;
 }
 
+.reassurance__image {
+  width: 80%;
+  height: auto;
+}
+
+@media(min-width: 768px) {
+  .reassurance__image {
+    width: 40%;
+  }
+}
 
 // BANNER
 
@@ -30,18 +38,61 @@
   z-index: 2;
   position: absolute;
   top: 50%;
-  left: 70%;
+  left: 50%;
   transform: translate(-50%,-50%);
-  width: 280px;
+  width: 70vw;
   height: auto;
   padding: 24px;
 }
 
+@media(min-width: 768px) {
+  .banner-slider__encart{
+    left: 70%;
+    width: 30vw;
+  }
+}
 
 // ALTERNATE
 
+.alternate {
+  display: block;
+}
+
+.alternate__image {
+  width: 100%;
+}
+
 .alternate__text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  width: 90vw;
+}
+
+@media(min-width: 768px) {
+  .alternate__image {
+    width: 100%;
+  }
+
+  .alternate__text-container {
+    padding: 4vw;
+    max-width: 600px;
+    max-height: 500px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .alternate__image {
+    width: 80%;
+  }
+
+  .alternate__text-container {
+    padding: 4vw;
+    max-height: 600px;
+  }
+}
+
+
+@media(min-width: 1400px) {
+  .alternate__text-container {
+    padding: 4vw;
+    max-height: 700px;
+  }
 }
