@@ -10,6 +10,8 @@
           {% include 'banner-mega-section' %}
         {% when 'featured-collection' %}
           {% include 'featured-collection-mega-section' %}
+        {% when 'call-to-action' %}
+          {% include 'call-to-action-mega-section' %}
       {% endcase %}
     {% endfor %}
   </div>
@@ -275,6 +277,29 @@
         ],
         "label": "Size of the margin-bottom"
       }
+      ]
+    },
+    {
+      "type": "call-to-action",
+      "name": "Call to action",
+      "settings": [
+        {
+          "id": "text-box",
+          "type": "text",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "id": "link",
+          "type": "url",
+          "label": "Link URL"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Link text",
+          "default": "Click here"
+        }
       ]
     }
   ],
