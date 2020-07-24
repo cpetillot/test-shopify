@@ -1,0 +1,97 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="featured-product">
+  <div class="feature-product__product-wraper  z-grid z-frid--center">
+
+    <div class="featured-product">
+      <div class="align-center">
+        {% unless section.settings.featured_product_title == blank %}
+        <h2 class="featured_product_title y-h2 align-center">{{ section.settings.featured_product_title }}</h2>
+        {% endunless %}
+      </div>
+
+      {%- assign product = all_products[section.settings.featured_product] -%}
+
+      <div class="z-grid__cell grid__cell">
+        <div class="featured-product__container">
+          <div slider-for>
+            {% for image in product.images %}
+              <div class="featured-product__image-container">
+                <img class="featured-product__image--top" src="{{ image.src | img_url : '450x' }}" alt="{{ product.images.last.alt | escape }}"/>
+              </div>
+            {% endfor %}
+          </div>
+          <div>
+            {% for image in product.images %}
+              <div class="featured-product__slider-nav">
+                <img class="featured-product--bottom" src="{{ image.src | img_url : '250x' }}" alt="{{ product.images.last.alt | escape }}"/>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-product__infos">
+        <h2>{{ product.title | escape }}</h2>
+        <div>{{ product.price | money }}</div>
+        <form>
+          <p class="featured-product__choose-size">Choisissez votre taille :</p>
+          {% for variant in product.variants %}
+            <label>
+              {% if variant.avilable == true %}
+                <input class="featured-product__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}"/>
+                <div class="featured-product__checkmark--1 checkmark">
+                  <div class="featured-product__checkmark--variant-title">{{ variant.title | escape}}</div>
+                </div>
+                {% else %}
+                <input class="featured-product__disabled-input" type="radio" name="group2" disabled="disabled" value="{{ variant.id }}" data-variant-id="{{ variant.id }}" />
+                <div class="featured-product__checkmark--2 checkmark">
+                  <div class="featured-product__checkmark--variant-title">{{ variant.title | escape}}</div>
+                  <div class="featured-product__disabled-checkmark"></div>
+                </div>
+              {% endif %}
+            </label>
+          {% endfor %}
+          <input class="featured-product__btn btn" type="submit" value="Ajoutez au panier">
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "featured-product",
+    "settings": [
+      {
+        "type": "text",
+        "id": "featured_product_title",
+        "label": "Title",
+        "default": "Your Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "featured_product_show_vendor",
+        "label": "Show vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_description",
+        "label": "Show description",
+        "default": true
+      },
+      {
+        "type": "product",
+        "id": "featured_product",
+        "label": "Product"
+      }
+    ],
+      "presets": [
+        {
+          "name": "Featured product SZ",
+          "category": "Product"
+        }
+      ]
+    }
+  {% endschema %}
