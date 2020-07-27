@@ -1,0 +1,100 @@
+<section id="section-{{ section.id }}" class="section align-center" data-section-id="{{ section.id }}" data-section-type="featured-product">
+  <div class="feature-product__product-wraper align-center">
+
+    <div class="featured-product">
+      <div class="align-center">
+        {% unless block.settings.featured_product_title == blank %}
+        <h2 class="featured_product_title y-h2 align-center">{{ block.settings.featured_product_title }}</h2>
+        {% endunless %}
+      </div>
+    </div>
+
+    {%- assign product = all_products[block.settings.featured_product] -%}
+
+    <div class="featured-product__content-wraper align-center">
+
+      <div class="featured-product__images-container">
+        <div data-slider-for class="featured-product__main-image">
+          {% for image in product.images %}
+            <div class="featured-product__image--big">
+              <img src="{{ image.src | img_url : '550x' }}" alt="{{ product.images.last.alt | escape }}"/>
+            </div>
+          {% endfor %}
+        </div>
+        <div data-slider-nav class="featured-product__secondaries-images">
+          {% for image in product.images %}
+            <div class="featured-product__image--small">
+              <img src="{{ image.src | img_url : '150x' }}" alt="{{ product.images.last.alt | escape }}"/>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+      <div class="featured-product__infos">
+        <h2>{{ product.title | escape }}</h2>
+        <div class="featured-product__price-wrapper">
+          <span class="featured-product__product-price">{{ current_variant.price | money }}</span>
+          {% if product.compare_at_price_max > product.price %}
+            <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+            <s class="featured-product__compare-price">
+              {% if current_variant.compare_at_price > current_variant.price %}
+                {{ current_variant.compare_at_price | money }}
+              {% endif %}
+            </s>
+          {% endif %}
+        </div>
+
+        <form action="/cart/add" method="post" enctype="multipart/form-data">
+          {% unless product.has_only_default_variant %}
+          <div class="{% if section.settings.show_swatch %}hide{% endif %}">
+            {% for option in product.options_with_values %}
+              <div class="selector-wrapper js">
+                <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+                <select id="SingleOptionSelector-{{ forloop.index0 }}" class="featured-product__single-option-selector" data-index="option{{ option.position }}">
+                  {% for value in option.values %}
+                    <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          </div>
+          {% endunless %}
+          <select name="id" class="no-js featured-product__product-select">
+            {% for variant in product.variants %}
+              <option
+                {% if variant == current_variant %}selected="selected"{% endif %}
+                {% unless variant.available %}disabled="disabled"{% endunless %}
+                value="{{ variant.id }}">
+                  {{ variant.title }}
+              </option>
+            {% endfor %}
+          </select>
+            {% if section.settings.show_swatch and product.available and product.variants.size > 1 %}
+              {% for option in product.options %}
+                {% include 'swatch' with option %}
+              {% endfor %}
+            {% endif %}
+            <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1">
+
+
+          <div class="rte">{{ product.description }}</div>
+          <button type="submit" name="add" data-add-to-cart {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+            <span data-add-to-cart-text>
+              {% if current_variant.available %}
+                {{ 'products.product.add_to_cart' | t }}
+              {% else %}
+                {{ 'products.product.sold_out' | t }}
+              {% endif %}
+            </span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
