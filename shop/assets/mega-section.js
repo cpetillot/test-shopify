@@ -12,10 +12,6 @@ theme.sliderChoice = new (function () {
   };
 
   function sliderChoice() {
-    if ($(settingsShoes1.sliderSelector).data("slider-dots") == true) {
-      settings.dots = true;
-    }
-
     $(settingsShoes1.sliderSelector1).slick({
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -28,8 +24,6 @@ theme.sliderChoice = new (function () {
       slidesToShow: 3,
       slidesToScroll: 1,
       asNavFor: "[data-slider-for]",
-      dots: true,
-      centerMode: true,
       focusOnSelect: true,
     });
   }
@@ -39,7 +33,6 @@ theme.sliderChoice = new (function () {
 
 var sliderChoice = new theme.sliderChoice();
 
-/*
 $(function () {
   var form = $('form[action="/cart/add"]');
 
@@ -51,5 +44,6 @@ $(function () {
     });
 });
 
+/*
 var variant = {{ product.selected_variant | json }};
 */

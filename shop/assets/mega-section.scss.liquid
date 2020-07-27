@@ -15,6 +15,9 @@
   margin-bottom: 75px;
 }
 
+.margin-bottom {
+  margin-bottom: 15px;
+}
 
 //REASSURANCE
 .reassurance {
@@ -98,19 +101,76 @@
 }
 
 // FEATURED PRODUCT
+.section__featured-product {
+  display: flex;
+  justify-content: center;
+}
 
 .featured-product__content-wraper {
   display: flex;
+  max-width: 1400px !important;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .featured-product__images-container {
-  width: 60%;
+  width: 70%;
+}
+
+.featured-product__image--big {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.featured-product__main-image {
+  height: 70%;
+  width: 80%;
+  margin: auto;
+}
+
+.featured-product__image--big {
+  height: 100%;
 }
 
 .featured-product__secondaries-images {
   display: flex;
+  justify-content: flex-start;
+  margin: auto;
 }
 
 .featured-product__image--small {
-  width: auto;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-product__infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-product__info-title {
+  margin-bottom: 15px;
+}
+
+.featured-product__price-wrapper {
+  margin-bottom: 15px;
+}
+
+.featured-product__form {
+  margin-bottom: 15px;
+}
+
+.featured-product__cta {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.featured-product__description {
+  width: 90%;
 }
