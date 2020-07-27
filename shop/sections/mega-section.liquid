@@ -12,6 +12,8 @@
           {% include 'featured-collection-mega-section' %}
         {% when 'call-to-action' %}
           {% include 'call-to-action-mega-section' %}
+        {% when 'featured-product' %}
+          {% include 'featured-product-mega-section' %}
       {% endcase %}
     {% endfor %}
   </div>
@@ -300,6 +302,41 @@
           "label": "Link text",
           "default": "Click here"
         }
+      ]
+    },
+    {
+      "type": "featured-product",
+      "name": "Featured product",
+      "settings": [
+      {
+        "type": "text",
+        "id": "featured_product_title",
+        "label": "Title",
+        "default": "Your Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "featured_product_show_vendor",
+        "label": "Show vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_description",
+        "label": "Show description",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_swatch",
+        "label": "Show swatch button",
+        "default": true
+      },
+      {
+        "type": "product",
+        "id": "featured_product",
+        "label": "Product"
+      }
       ]
     }
   ],

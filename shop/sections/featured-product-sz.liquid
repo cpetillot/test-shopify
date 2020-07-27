@@ -1,5 +1,5 @@
 <section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="featured-product">
-  <div class="feature-product__product-wraper  z-grid z-frid--center">
+  <div class="feature-product__product-wraper relative z-grid z-frid--center">
 
     <div class="featured-product">
       <div class="align-center">
@@ -10,7 +10,7 @@
 
       {%- assign product = all_products[section.settings.featured_product] -%}
 
-      <div class="z-grid__cell grid__cell">
+      <div class="a">
         <div class="featured-product__container">
           <div slider-for>
             {% for image in product.images %}
@@ -35,7 +35,7 @@
         <form>
           <p class="featured-product__choose-size">Choisissez votre taille :</p>
           {% for variant in product.variants %}
-            <label>
+            <label class="featured-product__label-container">
               {% if variant.avilable == true %}
                 <input class="featured-product__input" type="radio" name="group1" value="{{ variant.id }}" data-variant-id="{{ variant.id }}"/>
                 <div class="featured-product__checkmark--1 checkmark">
