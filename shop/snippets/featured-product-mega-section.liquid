@@ -34,19 +34,11 @@
       <div class="featured-product__infos">
         <h2 class="featured-product__info-title">{{ product.title | escape }}</h2>
         <div class="featured-product__price-wrapper">
-          <span class="featured-product__product-price">{{ current_variant.price | money }}</span>
-          {% if product.compare_at_price_max > product.price %}
-            <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-            <s class="featured-product__compare-price">
-              {% if current_variant.compare_at_price > current_variant.price %}
-                {{ current_variant.compare_at_price | money }}
-              {% endif %}
-            </s>
-          {% endif %}
+          <span class="featured-product__product-price">{{ product.price | money }}</span>
         </div>
 
         <form class="featured-product__form" action="/cart/add" method="post" enctype="multipart/form-data">
-          <input type="hidden" name="id">
+          <input type="hidden" name="idProduct">
           {% unless product.has_only_default_variant %}
           <div class="{% if section.settings.show_swatch %}hide{% endif %}">
             {% for option in product.options_with_values %}
