@@ -40,10 +40,41 @@ $(function () {
     .find("[data-variant-id]")
     .on("click", function () {
       var id = $(this).data("variant-id");
-      $(form).find('input[name="id"]').val(id);
+      $(form).find('input[name="idProduct"]').val(id);
     });
 });
 
-/*
-var variant = {{ product.selected_variant | json }};
-*/
+theme.Product = function () {
+  var selectors = {
+    addToCart: "[data-add-to-cart]",
+    addToCartText: "[data-add-to-cart-text]",
+    comparePrice: "[data-compare-price]",
+    comparePriceText: "[data-compare-text]",
+    originalSelectorId: "[data-product-select]",
+    priceWrapper: "[data-price-wrapper]",
+    productFeaturedImage: "[data-product-featured-image]",
+    productJson: "[data-product-json]",
+    productPrice: "[data-product-price]",
+    productThumbs: "[data-product-single-thumbnail]",
+    singleOptionSelector: "[data-single-option-selector]",
+  };
+
+  var variant = evt.variant;
+
+  if (variant) {
+    $(selectors.priceWrapper, this.$container).removeClass("hide");
+  } else {
+    $(selectors.addToCart, this.$container).prop("disabled", true);
+    $(selectors.addToCartText, this.$container).html(theme.strings.unavailable);
+    $(selectors.priceWrapper, this.$container).addClass("hide");
+    return;
+  }
+
+  if (variant.available) {
+    $(selectors.addToCart, this.$container).prop("disabled", false);
+    $(selectors.addToCartText, this.$container).html(theme.strings.addToCart);
+  } else {
+    $(selectors.addToCart, this.$container).prop("disabled", true);
+    $(selectors.addToCartText, this.$container).html(theme.strings.soldOut);
+  }
+};
