@@ -1,3 +1,8 @@
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+
 <section id="section-{{ section.id }}" class="section__featured-product" data-section-id="{{ section.id }}" data-section-type="featured-product">
   <div class="feature-product__product-wraper">
 
@@ -33,14 +38,18 @@
 
       <div class="featured-product__infos">
         <h2 class="featured-product__info-title">{{ product.title | escape }}</h2>
+        <h1>{{ product.title | default: onboarding_title }}</h1>
+        {% if product.vendor != blank %}
+           <p>{{ product.vendor }}</p>
+        {% endif %}
         <div class="featured-product__price-wrapper">
           <span class="featured-product__product-price">{{ product.price | money }}</span>
         </div>
 
         <form class="featured-product__form" action="/cart/add" method="post" enctype="multipart/form-data">
-          <input type="hidden" name="idProduct">
+          <input type="hidden" name="id">
           {% unless product.has_only_default_variant %}
-          <div class="{% if section.settings.show_swatch %}hide{% endif %}">
+          <div>
             {% for option in product.options_with_values %}
               <div class="selector-wrapper js margin-bottom">
                 <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
@@ -55,10 +64,10 @@
             {% endfor %}
           </div>
           {% endunless %}
-          <select name="id" class="no-js featured-product__product-select margin-bottom">
+          <select name="id" class="no-js featured-product__product-select margin-bottom" data-product-select>
             {% for variant in product.variants %}
               <option
-                {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                {% if variant == current_variant %}selected="selected"{% endif %}
                 {% unless variant.available %}disabled="disabled"{% endunless %}
                 data-variant-id="{{ variant.id }}"
                 value="{{ variant.id }}">
@@ -69,14 +78,17 @@
 
 
           <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-          <input class="margin-bottom" type="number" id="Quantity" name="quantity" value="1" min="1">
-          <br><button class="featured-product__cta btn margin-bottom product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}" type="submit" name="add" data-add-to-cart aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}">
+          <input class="featured-product__quantity-input margin-bottom" type="number" id="Quantity" name="quantity" value="1" min="1">
+          <br>
+          <button class="btn featured-product__cta" type="submit" name="add" data-add-to-cart
+            {% unless product.available %}disabled="disabled"{% endunless %}
+            {% if section_onboarding %}disabled="disabled"{% endif %}>
             <span data-add-to-cart-text>
-              {% if current_variant.available %}
-                {{ 'products.product.add_to_cart' | t }}
-              {% else %}
-                {{ 'products.product.sold_out' | t }}
-              {% endif %}
+            {% if product.available %}
+              {{ 'products.product.add_to_cart' | t }}
+            {% else %}
+              {{ 'products.product.sold_out' | t }}
+            {% endif %}
             </span>
           </button>
           <div class="featured-product__description rte">{{ product.description }}</div>
