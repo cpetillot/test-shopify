@@ -43,16 +43,6 @@ $(function () {
       $(form).find('input[name="id"]').val(id);
     });
 });
-/**
- * Variant Selection scripts
- * ------------------------------------------------------------------------------
- *
- * Handles change events from the variant inputs in any `cart/add` forms that may
- * exist. Also updates the master select and triggers updates when the variants
- * price or image changes.
- *
- * @namespace variants
- */
 
 slate.Variants = (function () {
   /**
@@ -74,7 +64,7 @@ slate.Variants = (function () {
     );
   }
 
-  Variants.prototype = _.assignIn({}, Variants.prototype, {
+  Variants.prototype = $.extend({}, Variants.prototype, {
     /**
      * Get the currently selected options from add-to-cart form. Works with all
      * form input elements.
@@ -82,14 +72,14 @@ slate.Variants = (function () {
      * @Return {array} options - Values of currently selected variants
      */
     _getCurrentOptions: function () {
-      var currentOptions = _.map(
+      var currentOptions = $.map(
         $(this.singleOptionSelector, this.$container),
         function (element) {
           var $element = $(element);
           var type = $element.attr("type");
           var currentOption = {};
 
-          if (type === "radio" || type === "checkbox") {
+          if (type === "radio" || type === "checkbox" || type === "select") {
             if ($element[0].checked) {
               currentOption.value = $element.val();
               currentOption.index = $element.data("index");
@@ -108,7 +98,9 @@ slate.Variants = (function () {
       );
 
       // remove any unchecked input values if using radio buttons or checkboxes
-      currentOptions = _.compact(currentOptions);
+      currentOptions = slate.utils.compact(currentOptions);
+
+      updateSwatchVariant(variant);
 
       return currentOptions;
     },
@@ -123,13 +115,23 @@ slate.Variants = (function () {
       var selectedValues = this._getCurrentOptions();
       var variants = this.product.variants;
 
-      var found = _.find(variants, function (variant) {
-        return selectedValues.every(function (values) {
-          return _.isEqual(variant[values.index], values.value);
+      var found = false;
+
+      variants.forEach(function (variant) {
+        var satisfied = true;
+
+        selectedValues.forEach(function (option) {
+          if (satisfied) {
+            satisfied = option.value === variant[option.index];
+          }
         });
+
+        if (satisfied) {
+          found = variant;
+        }
       });
 
-      return found;
+      return found || null;
     },
 
     /**
@@ -137,7 +139,7 @@ slate.Variants = (function () {
      */
     _onSelectChange: function () {
       var variant = this._getVariantFromOptions();
-      console.log("data change");
+
       this.$container.trigger({
         type: "variantChange",
         variant: variant,
@@ -148,7 +150,6 @@ slate.Variants = (function () {
       }
 
       this._updateMasterSelect(variant);
-      this._updateImages(variant);
       this._updatePrice(variant);
       this._updateSKU(variant);
       this.currentVariant = variant;
@@ -221,8 +222,7 @@ slate.Variants = (function () {
     /**
      * Update history state for product deeplinking
      *
-     * @param {variant} variant - Currently selected variant
-     * @Return {k} [description]
+     * @param {object} variant - Currently selected variant
      */
     _updateHistoryState: function (variant) {
       if (!history.replaceState || !variant) {
@@ -245,7 +245,7 @@ slate.Variants = (function () {
      * @param {variant} variant - Currently selected variant
      */
     _updateMasterSelect: function (variant) {
-      $(this.originalSelectorId, this.$container).val(variant.id);
+      $(this.originalSelectorId, this.$container).value = variant.id;
     },
   });
 
