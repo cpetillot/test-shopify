@@ -1,0 +1,129 @@
+<section id="reassurance" class="reassurance-js">
+</section>
+
+
+<script>
+
+
+//document.body.onload = addElement;
+
+function mySection() {
+  var divReassurance = document.createElement("div");
+  divReassurance.classList.add("reassurance", "align-center");
+
+  var divContainer = document.createElement("div");
+  divContainer.classList.add("container");
+
+  var sectionTitle = document.createElement("h2");
+  sectionTitle.innerHTML = "{{ section.settings.title }}";
+  sectionTitle.classList.add("reassurance__title", "z-h2");
+
+  var sectionText = document.createElement("div");
+  sectionText.innerHTML = "{{ section.settings.text }}";
+  sectionText.classList.add("reassurance__text");
+
+  var blockContainer = document.createElement("div");
+  blockContainer.classList.add("z-grid", "z-grid--center");
+
+  var singleBlockContainer = document.createElement("div");
+  singleBlockContainer.classList.add("z-grid__cell", "1/{{ section.settings.number_items }}", "1/{{ section.settings.number_items_mobile }}--thumb", "grid__cell");
+
+  var imageContainer = document.createElement("div");
+  imageContainer.classList.add("align-center");
+
+  var image = document.createElement("img");
+  image.classList.add("reassurance__image");
+  image.setAttribute("src", "{{ block.settings.image | img_url : '250x' }}");
+  image.setAttribute("alt", "{{block.settings.image}}");
+
+  var subtitle = document.createElement("h3");
+  subtitle.innerHTML = "{{ block.settings.title}}";
+  subtitle.classList.add("align-center", "z-h3");
+
+
+  divReassurance.appendChild(divContainer);
+  divContainer.appendChild(sectionTitle);
+  divContainer.appendChild(sectionText);
+  divContainer.appendChild(blockContainer);
+  blockContainer.appendChild(singleBlockContainer);
+  singleBlockContainer.appendChild(imageContainer);
+  imageContainer.appendChild(image);
+  singleBlockContainer.appendChild(subtitle);
+
+
+
+  document.getElementById("reassurance").appendChild(divReassurance);
+}
+mySection();
+
+
+</script>
+
+{% schema %}
+  {
+    "name": "reassurance",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Heading",
+        "default": "Title"
+      },
+      {
+        "id": "text",
+        "type": "richtext",
+        "label": "Add custom text below",
+        "default": "<p>Add your text here</p>"
+      },
+      {
+          "type": "range",
+          "id": "number_items",
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "unit": "pc",
+          "label": "Number of pieces desktop",
+          "default": 3
+      },
+      {
+          "type": "range",
+          "id": "number_items_mobile",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "unit": "pc",
+          "label": "Number of pieces mobile",
+          "default":2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "subtitle"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "reassurance-js",
+      "category": "reassurance"
+    }
+  ]
+  }
+{% endschema %}
