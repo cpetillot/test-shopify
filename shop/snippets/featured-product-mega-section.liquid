@@ -53,7 +53,7 @@
             {% for option in product.options_with_values %}
               <div class="selector-wrapper js margin-bottom">
                 <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
-                <select id="SingleOptionSelector-{{ forloop.index0 }}" class="featured-product__single-option-selector margin-bottom" data-index="option{{ option.position }}">
+                <select id="SingleOptionSelector-{{ forloop.index0 }}" class="featured-product__single-option-selector margin-bottom" data-variant-option1 data-index="option{{ option.position }}">
                   {% for value in option.values %}
                     <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
                       {{ value }}
@@ -64,7 +64,7 @@
             {% endfor %}
           </div>
           {% endunless %}
-          <select name="id" class="no-js featured-product__product-select margin-bottom" data-product-select>
+          <select name="id" class="no-js featured-product__product-select margin-bottom" data-variant-option2>
             {% for variant in product.variants %}
               <option
                 {% if variant == current_variant %}selected="selected"{% endif %}
@@ -75,7 +75,14 @@
               </option>
             {% endfor %}
           </select>
-
+          <select name="id" class="no-js" data-product-select>
+            {% for variant in product.variants %}
+            <option {% unless variant.available %}disabled="disabled"{% endunless %} data-variant-available="{{ variant.available }}"
+              value="{{ variant.id }}">
+              {{ variant.title }}
+            </option>
+            {% endfor %}
+          </select>
 
           <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
           <input class="featured-product__quantity-input margin-bottom" type="number" id="Quantity" name="quantity" value="1" min="1">
