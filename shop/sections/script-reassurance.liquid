@@ -4,9 +4,6 @@
 
 <script>
 
-
-//document.body.onload = addElement;
-
 function mySection() {
   var divReassurance = document.createElement("div");
   divReassurance.classList.add("reassurance", "align-center");
@@ -28,6 +25,8 @@ function mySection() {
   var singleBlockContainer = document.createElement("div");
   singleBlockContainer.classList.add("z-grid__cell", "1/{{ section.settings.number_items }}", "1/{{ section.settings.number_items_mobile }}--thumb", "grid__cell");
 
+  {% for block in section.blocks %}
+
   var imageContainer = document.createElement("div");
   imageContainer.classList.add("align-center");
 
@@ -36,26 +35,31 @@ function mySection() {
   image.setAttribute("src", "{{ block.settings.image | img_url : '250x' }}");
   image.setAttribute("alt", "{{block.settings.image}}");
 
-  var subtitle = document.createElement("h3");
-  subtitle.innerHTML = "{{ block.settings.title}}";
-  subtitle.classList.add("align-center", "z-h3");
+  var title = document.createElement("h3");
+  title.innerHTML = "{{ block.settings.title}}";
+  title.classList.add("align-center", "z-h3");
 
+  var subtitle = document.createElement("div");
+  subtitle.innerHTML = "{{ block.settings.subtitle}}";
+  subtitle.classList.add("align-center");
+
+  singleBlockContainer.appendChild(imageContainer);
+  imageContainer.appendChild(image);
+  singleBlockContainer.appendChild(title);
+  singleBlockContainer.appendChild(subtitle);
+
+
+  {% endfor %}
 
   divReassurance.appendChild(divContainer);
   divContainer.appendChild(sectionTitle);
   divContainer.appendChild(sectionText);
   divContainer.appendChild(blockContainer);
   blockContainer.appendChild(singleBlockContainer);
-  singleBlockContainer.appendChild(imageContainer);
-  imageContainer.appendChild(image);
-  singleBlockContainer.appendChild(subtitle);
-
-
 
   document.getElementById("reassurance").appendChild(divReassurance);
 }
 mySection();
-
 
 </script>
 
