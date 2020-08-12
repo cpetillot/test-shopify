@@ -1,22 +1,42 @@
-<section id="reassurance" class="reassurance-js">
-  hello
+<section id="reassurance" class="reassurance-jq">
+
 </section>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-var reassurance = $("<div class='reassurance align-center'></div>");
-$.append(reassurance);
+$(document).ready(function(){
 
+  $("#reassurance").append("<div class='reassurance align-center'></div>");
+  $(".reassurance").append("<div class='container'></div>");
+  $(".container").append("<h2 class='reassurance__title'>{{ section.settings.title }}</h2>");
+  $(".container").append("<div class='reassurance__text'>{{ section.settings.text }}</div>");
+  $(".container").append("<div id='reassuranceBlockContainer' class='reassurance__block-container z-grid--center z-grid'></div>");
 
+{% for block in section.blocks %}
 
+  $(".reassurance__block-container").append("<div class='reassurance__single-block-container z-grid__cell 1/{{ section.settings.number_items }} 1/{{ section.settings.number_items_mobile }}--thumb grid__cell'></div>");
 
+  $(".reassurance__single-block-container").append("<div class='reassurance__image-container align-center'></div>");
+  $(".reassurance__image-container").append("<img class='reassurance__image' src='{{ block.settings.image | img_url : '250x' }}'></img>");
+  $(".reassurance__single-block-container").append("<h3 class='reassurance__block-title z-h3 align-center'>{{ block.settings.title}}</h3>");
+  $(".reassurance__single-block-container").append("<div class='reassurance__block-subtitle align-center'>{{ block.settings.subtitle}}</div>");
 
+{% endfor %}
 
+$(".container").append("<button id='btn' class='btn'></button>")
+$('button').click(function() {
+  $("div.reassurance").randomize("div", "div.reassurance__block-container");
 
+(function($) {
+    var parent = $("#reassuranceBlockContainer");
+    var child = parent.children();
+    while (divs.length) {
+      parent.append(child.splice(Math.floor(Math.random() * child.length), 1)[0]);
+    }
+  });
 
-
-
+});
 </script>
 
 {% schema %}

@@ -21,11 +21,14 @@ function mySection() {
 
   var blockContainer = document.createElement("div");
   blockContainer.classList.add("z-grid", "z-grid--center");
-
-  var singleBlockContainer = document.createElement("div");
-  singleBlockContainer.classList.add("z-grid__cell", "1/{{ section.settings.number_items }}", "1/{{ section.settings.number_items_mobile }}--thumb", "grid__cell");
+  blockContainer.id="reassuranceBlockContainer";
 
   {% for block in section.blocks %}
+
+
+  var singleBlockContainer = document.createElement("div");
+  singleBlockContainer.classList.add("reassurance__block-container", "z-grid__cell", "1/{{ section.settings.number_items }}", "1/{{ section.settings.number_items_mobile }}--thumb", "grid__cell");
+  singleBlockContainer.id="reassuranceBlock";
 
   var imageContainer = document.createElement("div");
   imageContainer.classList.add("align-center");
@@ -43,6 +46,7 @@ function mySection() {
   subtitle.innerHTML = "{{ block.settings.subtitle}}";
   subtitle.classList.add("align-center");
 
+  blockContainer.appendChild(singleBlockContainer);
   singleBlockContainer.appendChild(imageContainer);
   imageContainer.appendChild(image);
   singleBlockContainer.appendChild(title);
@@ -55,10 +59,25 @@ function mySection() {
   divContainer.appendChild(sectionTitle);
   divContainer.appendChild(sectionText);
   divContainer.appendChild(blockContainer);
-  blockContainer.appendChild(singleBlockContainer);
+
 
   document.getElementById("reassurance").appendChild(divReassurance);
+
+  var btn = document.createElement("button");
+  btn.innerHTML= "change block order";
+  btn.id="button";
+  btn.classList.add("btn");
+  divContainer.appendChild(btn);
+
+  document.addEventListener("click", function() {
+    var block = document.getElementById('reassuranceBlockContainer');
+     for (var i = block.children.length; i >= 0 ; i--) {
+       block.appendChild(block.children[Math.random() * i | 0 ]);
+     }
+  })
 }
+
+
 mySection();
 
 </script>
